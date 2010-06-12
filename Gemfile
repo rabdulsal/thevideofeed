@@ -1,3 +1,5 @@
 source 'http://rubygems.org'
 gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '5c9f27abaabba0d008cc'
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'sqlite3-ruby', '1.3.0', :require => 'sqlite3'
+gem 'thin', '1.2.7'
+gem 'pg', '0.9.0'
