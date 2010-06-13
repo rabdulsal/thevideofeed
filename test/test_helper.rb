@@ -11,6 +11,12 @@ class ActiveSupport::TestCase
     Sham.reset
   end
 
+  def sign_in!(options = {})
+    user = User.make(options)
+    sign_in user
+    user
+  end
+
 end
 
 class ActionController::TestCase

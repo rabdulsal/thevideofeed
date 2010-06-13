@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '5c9f27abaabba0d008cc'
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => 'f1a990c2ae51753453b7'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '025c3875b6232e77f520'
 
 gem 'sqlite3-ruby', '1.3.0', :require => 'sqlite3'
 
