@@ -1,0 +1,14 @@
+development:
+  host: thevideofeed.local
+  mailer: noreply@thevideofeed.com
+  name: thevideofeed
+
+test:
+  host: thevideofeed.test
+  mailer: noreply@thevideofeed.com
+  name: thevideofeed
+
+production:
+  host: thevideofeed.com
+  mailer: noreply@thevideofeed.com
+  name: thevideofeed
