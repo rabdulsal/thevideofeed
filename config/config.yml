@@ -12,3 +12,4 @@ production:
   host: thevideofeed.com
   mailer: noreply@thevideofeed.com
   name: thevideofeed
+  google_analytics: UA-2350501-12
