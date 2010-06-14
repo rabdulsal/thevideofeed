@@ -17,6 +17,10 @@ class ActiveSupport::TestCase
     user
   end
 
+  def http_authenticate!
+    @controller.stubs(:authenticate_or_request_with_http_basic).returns true
+  end
+
 end
 
 class ActionController::TestCase

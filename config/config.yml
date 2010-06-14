@@ -2,14 +2,17 @@ development:
   host: thevideofeed.local
   mailer: noreply@thevideofeed.com
   name: thevideofeed
+  admin_password: test
 
 test:
   host: thevideofeed.test
   mailer: noreply@thevideofeed.com
   name: thevideofeed
+  admin_password: test
 
 production:
   host: thevideofeed.com
   mailer: noreply@thevideofeed.com
   name: thevideofeed
   google_analytics: UA-2350501-12
+  admin_password: 92dce5db985

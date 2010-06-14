@@ -12,4 +12,5 @@ group :test do
   gem 'machinist', '1.0.6'
   gem 'faker', '0.3.1'
   gem 'autotest-rails', '4.1.0'
+  gem 'mocha', '0.9.8'
 end
