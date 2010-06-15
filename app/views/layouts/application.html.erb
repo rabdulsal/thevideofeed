@@ -3,8 +3,8 @@
 <head>
   <title>thevideofeed</title>
   <% # TODO :cache => true for css/js for heroku %>
-  <%= stylesheet_link_tag 'reset', '960', 'forms', 'application'#, :cache => true %>
-  <%= javascript_include_tag 'jquery-1.4.2.min'#, :cache => true %>
+  <%= stylesheet_link_tag 'reset', '960', 'forms', 'application' %>
+  <%= javascript_include_tag 'jquery-1.4.2.min' %>
   <%= csrf_meta_tag %>
   <%= render 'shared/google_analytics' if CONFIG['google_analytics'] %>
 </head>
