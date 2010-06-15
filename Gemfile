@@ -4,8 +4,8 @@ gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '5c9f27abaabba0
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '025c3875b6232e77f520'
 
 gem 'hoptoad_notifier', '2.2.6'
-gem 'right_aws', '2.0.0'
 gem 'toadhopper', '1.0.4'
+gem 'right_aws', '1.10.0'
 
 gem 'thin', '1.2.7'
 gem 'pg', '0.9.0'
