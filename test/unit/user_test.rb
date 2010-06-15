@@ -27,8 +27,7 @@ class UserTest < ActiveSupport::TestCase
   test "validates unique email" do
     u1 = User.make(:email => 'test@example.com')
     assert u1.valid?
-    u2 = User.new
-    u2.email = 'test@example.com'
+    u2 = User.new(:email => 'test@example.com')
     assert !u2.valid?
     assert u2.errors[:email]
   end
