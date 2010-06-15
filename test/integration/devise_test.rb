@@ -26,5 +26,12 @@ class DeviseTest < ActionDispatch::IntegrationTest
       assert_response :success
     end
   end
+  
+  test "sign up without password confirmation" do
+    assert_difference 'User.count' do
+      post '/users', :user => {:email => 'test@example.com', :password => 'test'}
+      assert_redirected_to root_path
+    end
+  end
 
 end

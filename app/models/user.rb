@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
          :validatable, :registerable, :recoverable, :rememberable,
          :lockable, :trackable
 
+  def to_s
+    email
+  end
+
 end
