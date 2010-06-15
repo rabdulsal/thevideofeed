@@ -3,8 +3,9 @@ require 'sham'
 require 'faker'
 
 Sham.define do
-  login { "#{Faker::Name.first_name}_#{Faker::Name.last_name}".gsub(/'/, '')[0,15].downcase }
   email { Faker::Internet.email }
+  name { "#{Faker::Name.first_name} #{Faker::Name.last_name}" }
+  username { "#{Faker::Name.first_name}_#{Faker::Name.last_name}".gsub(/'/, '')[0,15].downcase }
 end
 
 # FeedItem.blueprint do
@@ -25,7 +26,8 @@ end
 # end
 
 User.blueprint do
-  # login { Sham.login }
   email { Sham.email }
   password 'test'
+  name { Sham.name }
+  username { Sham.username }
 end

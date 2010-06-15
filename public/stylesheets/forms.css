@@ -23,7 +23,8 @@ legend      { font-weight: bold; font-size:1.2em; }
 input[type=text], input[type=password],
 input.text, input.title,
 textarea, select {
-  font-size:0.8em;
+  width: 300px;
+  font-size:0.9em;
   padding:0.4em;
   background-color:#fff;
   border:1px solid #dedede;
