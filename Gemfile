@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '5c9f27abaabba0d008cc'
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git', :ref => '025c3875b6232e77f520'
+gem 'rails', :git => 'git://github.com/rails/rails.git', :ref => '0bf3baa6b3d216c6340f'
+gem 'devise', :git => 'git://github.com/trevorturk/devise.git', :ref => '07a1b0e3f4bf4fe9d6fe'
 
 gem 'hoptoad_notifier', '2.2.6'
 gem 'toadhopper', '1.0.4'

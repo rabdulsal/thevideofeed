@@ -56,7 +56,10 @@ Devise.setup do |config|
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
   config.remember_for = 2.months
-
+  
+  # If remember token can be extended indefinitely and used between browsers.
+  config.remember_for_extendable = true
+  
   # ==> Configuration for :validatable
   # Range for password length
   config.password_length = 1..50
