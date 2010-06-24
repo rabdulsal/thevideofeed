@@ -1,12 +1,10 @@
-thevideofeed
-
 # TODO
-users - show
 posts - embedly
+posts on posts/index
+posts on users/show
 follow
+show following on posts/index and users/show
 unfollow
-feed items
-gravatar
-
-# later
+feed items on posts/index
+gravatars
 heroku, bundler, rails update
