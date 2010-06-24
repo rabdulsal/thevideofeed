@@ -1,5 +1,13 @@
 # TODO
 posts - embedly
+
+catch invalid and non-video urls before hitting embedly
+catch bad or non-video responses from embedly
+
+allow create post, create video with it
+allow two posts of the same video without video dup
+canonicalize url of post up front to catch more dups
+
 posts on posts/index
 posts on users/show
 follow

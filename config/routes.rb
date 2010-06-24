@@ -1,4 +1,8 @@
 Thevideofeed::Application.routes.draw do |map|
+  resources :videos
+
+  resources :posts
+
 
   root :to => 'home#index'
 
