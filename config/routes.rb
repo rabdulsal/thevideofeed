@@ -16,8 +16,12 @@ Thevideofeed::Application.routes.draw do |map|
   #          user_unlock POST /users/unlock(.:format)        {:controller=>"devise/unlocks", :action=>"create"}
   #      new_user_unlock GET  /users/unlock/new(.:format)    {:controller=>"devise/unlocks", :action=>"new"}
 
+
   namespace :admin do
     root :to => 'home#index'
   end
+
+  # last route
+  match '/:id' => 'users#show', :as => :user
 
 end
