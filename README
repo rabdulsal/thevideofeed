@@ -3,16 +3,15 @@
 remember me fixes for devise
 regexp routes in rails issue
 
-home/index if logged in, posts/index if not
 regexp urls before going out to embedly
-show videos on posts/index
-show posts/videos on users/show
+make root page videos/index
+videos on users/show
 follow
 show following on posts/index and users/show
 unfollow
-feed items on posts/index
-gravatars
 feed na videos into app automatically
+feed_items/index if logged in, videos/index if not
+gravatars
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update
