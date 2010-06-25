@@ -2,9 +2,13 @@ require 'test_helper'
 
 class VideoTest < ActiveSupport::TestCase
 
+  setup do
+    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
+  end
+
   test "make" do
-    p = Post.make
-    assert p.valid?
+    v = Video.make
+    assert v.valid?
   end
 
   test "to_param" do
@@ -13,8 +17,8 @@ class VideoTest < ActiveSupport::TestCase
   end
 
   test "to_s" do
-    u = User.make
-    assert_equal u.username, u.to_s
+    v = Video.make
+    assert_equal v.title, v.to_s
   end
 
 end

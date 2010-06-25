@@ -23,7 +23,7 @@ end
 
 Post.blueprint do
   user { User.make }
-  video { Video.make }
+  url { "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
 end
 
 User.blueprint do
@@ -34,18 +34,5 @@ User.blueprint do
 end
 
 Video.blueprint do
-  author_name { "cotter548" }
-  author_url { "http://www.youtube.com/user/cotter548" }
-  description { "RickRoll'd\r\n\r\nHe's Back!\r\nOMG OMG OMG OVER 30 MILLION RICKROLL'd!" }
-  height { "385" }
-  html { "<object width=\"640\" height=\"385\"><param name=\"movie\" value=\"http://www.youtube.com/v/oHg5SJYRHA0&fs=1\"><param name=\"allowFullScreen\" value=\"true\"><param name=\"allowscriptaccess\" value=\"always\"><embed src=\"http://www.youtube.com/v/oHg5SJYRHA0&fs=1\" type=\"application/x-shockwave-flash\" width=\"640\" height=\"385\" allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed></object>" }
-  provider_name { "YouTube" }
-  provider_url { "http://www.youtube.com/" }
-  thumbnail_height { "90" }
-  thumbnail_url { "http://i.ytimg.com/vi/oHg5SJYRHA0/default.jpg" }
-  thumbnail_width { "120" }
-  title { "RickRoll'D" }
   url { "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
-  version { "1.0" }
-  width { "640" }
 end

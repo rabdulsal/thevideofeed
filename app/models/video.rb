@@ -4,7 +4,7 @@ class Video < ActiveRecord::Base
 
   has_many :posts
 
-  before_validation :set_oembed_attrs_via_embedly, :set_default_title_if_blank, :on => :create
+  before_validation :set_attrs_via_embedly, :set_default_title_if_blank, :on => :create
 
   validates_presence_of :url, :html, :width, :height, :version, :title
   validates_uniqueness_of :url
@@ -15,10 +15,8 @@ class Video < ActiveRecord::Base
 
   # TODO validate against regexp before hitting embedly
 
-  def set_oembed_attrs_via_embedly
-    embedly_url = "http://api.embed.ly/v1/api/oembed?url=#{url}"
-    response = RestClient.get embedly_url
-    attrs = JSON.parse response.body
+  def set_attrs_via_embedly
+    attrs = Embedly.get_attrs(url)
     errors[:base] << "is not a video" unless attrs['type'] == 'video'
     self.attributes = attrs
   end

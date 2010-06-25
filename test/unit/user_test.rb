@@ -2,6 +2,10 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
 
+  setup do
+    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
+  end
+
   test "make" do
     u = User.make
     assert u.valid?

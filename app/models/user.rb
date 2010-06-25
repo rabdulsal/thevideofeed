@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :validatable, :recoverable, :rememberable,
          :lockable, :trackable
 
+  has_many :posts
+
   validates_presence_of :name, :username
   validates_uniqueness_of :username
   validates_length_of :username, :maximum => 15

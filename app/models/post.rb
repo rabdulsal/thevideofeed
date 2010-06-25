@@ -1,12 +1,12 @@
 class Post < ActiveRecord::Base
 
   attr_accessor :url
-  attr_accessible # n/a
+  attr_accessible :url
 
   belongs_to :user
-  has_one :video
+  belongs_to :video
 
-  before_validation :canonicalize_url, :find_or_create_video_by_url
+  before_validation :canonicalize_url, :find_or_create_video, :on => :create
 
   validates_presence_of :user_id, :video_id
 
@@ -17,11 +17,12 @@ class Post < ActiveRecord::Base
     # TODO
   end
 
-  def find_or_create_video_by_url
-    video = Video.find_or_create_by_url(self)
+  def find_or_create_video
+    self.video = Video.find_or_create_by_url(url)
   end
 
   def not_implemented
+    raise 'NotImplementedError'
   end
 
 end

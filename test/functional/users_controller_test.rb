@@ -2,8 +2,19 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
 
+  setup do
+    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
+  end
+
   test "show" do
     u = User.make
+    get :show, :id => u.username
+    assert_response :success
+  end
+
+  test "show with posts" do
+    u = User.make
+    u.posts.make
     get :show, :id => u.username
     assert_response :success
   end
