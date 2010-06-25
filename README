@@ -12,6 +12,7 @@ show following on posts/index and users/show
 unfollow
 feed items on posts/index
 gravatars
+feed na videos into app automatically
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update
