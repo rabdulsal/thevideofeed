@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 
   def update
     raise 'NotImplementedError'
-    # TODOS here if allowing users to update their username etc...?
   end
 
 end

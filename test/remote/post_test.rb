@@ -29,16 +29,15 @@ class PostTest < ActiveSupport::TestCase
     end
   end
   
-  # TODO
-  # test "user can't post non-canonicalized duplicate url (vimeo)" do
-  #   assert_difference 'Post.count', 1 do
-  #     assert_difference 'Video.count', 1 do
-  #       u = User.make
-  #       p1 = u.posts.create(:url => "http://vimeo.com/11712103")
-  #       p2 = u.posts.create(:url => "http://www.vimeo.com/11712103")
-  #       assert !p2.valid?
-  #     end
-  #   end
-  # end
+  test "user can't post non-canonicalized duplicate url (vimeo)" do
+    assert_difference 'Post.count', 1 do
+      assert_difference 'Video.count', 1 do
+        u = User.make
+        p1 = u.posts.create(:url => "http://vimeo.com/11712103")
+        p2 = u.posts.create(:url => "http://www.vimeo.com/11712103")
+        assert !p2.valid?
+      end
+    end
+  end
 
 end

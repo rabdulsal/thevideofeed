@@ -23,7 +23,6 @@ Thevideofeed::Application.routes.draw do |map|
     root :to => 'home#index'
   end
 
-  # TODO nicer routes, e.g.
   # https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/4963
   # # /1-rick-roll-d -- videos to_param always starts with a number
   # match '/:id' => 'videos#show', :constraints => {:id => /\d/}, :as => :video

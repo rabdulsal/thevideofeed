@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def not_implemented
     raise 'NotImplementedError'
-    # TODO clean up posts by user, videos with no other asssociated posts,
+    # need to clean up posts by user, videos with no other asssociated posts,
     # follows for user, follows by user, feed items for user,
     # feed items by user (delete or change user getting credit for post)
   end

@@ -1,12 +1,17 @@
-# TODO
+# TODOs
 
-allow two posts of the same video without video dup
-canonicalize url of post up front to catch more dups (broken?)
-posts on posts/index
-posts on users/show
+remember me fixes for devise
+regexp routes in rails issue
+
+home/index if logged in, posts/index if not
+regexp urls before going out to embedly
+show videos on posts/index
+show posts/videos on users/show
 follow
 show following on posts/index and users/show
 unfollow
 feed items on posts/index
 gravatars
+
+:cache => true for css/js on heroku
 heroku, bundler, rails update

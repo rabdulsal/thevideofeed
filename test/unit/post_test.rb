@@ -11,21 +11,20 @@ class PostTest < ActiveSupport::TestCase
     assert p.valid?
   end
 
-  # TODO
-  # test "canonicalize urls" do
-  #   final_url = "http://youtube.com/watch?v=oHg5SJYRHA0"
-  #   p = Post.new(:url => "http://www.youtube.com/watch?v=oHg5SJYRHA0")
-  #   p.canonicalize_url
-  #   assert_equal p.url, final_url
-  #   p = Post.new(:url => "http://youtube.com/watch?v=oHg5SJYRHA0")
-  #   p.canonicalize_url
-  #   assert_equal p.url, final_url
-  #   p = Post.new(:url => "https://youtube.com/watch?v=oHg5SJYRHA0")
-  #   p.canonicalize_url
-  #   assert_equal p.url, final_url
-  #   p = Post.new(:url => "youtube.com/watch?v=oHg5SJYRHA0")
-  #   p.canonicalize_url
-  #   assert_equal p.url, final_url
-  # end
+  test "canonicalize urls" do
+    final_url = "http://www.youtube.com/watch?v=oHg5SJYRHA0"
+    p = Post.new(:url => "http://www.youtube.com/watch?v=oHg5SJYRHA0")
+    p.canonicalize_url
+    assert_equal p.url, final_url
+    p = Post.new(:url => "http://youtube.com/watch?v=oHg5SJYRHA0")
+    p.canonicalize_url
+    assert_equal p.url, final_url
+    p = Post.new(:url => "https://youtube.com/watch?v=oHg5SJYRHA0")
+    p.canonicalize_url
+    assert_equal p.url, final_url
+    p = Post.new(:url => "youtube.com/watch?v=oHg5SJYRHA0")
+    p.canonicalize_url
+    assert_equal p.url, final_url
+  end
 
 end

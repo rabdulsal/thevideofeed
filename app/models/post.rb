@@ -15,16 +15,14 @@ class Post < ActiveRecord::Base
   before_destroy :not_implemented
 
   def canonicalize_url
-    # TODO - breaks remote tests
-    # self.url = url.gsub(/(https?)(:\/\/)(www\.)?/, '').insert(0, 'http://').chomp if url
+    self.url = url.gsub(/(https?)(:\/\/)(www\.)?/, '').insert(0, 'http://www.').chomp if url
   end
 
   def validate_url
-    # TODO validate against regexp before hitting embedly
   end
 
   def find_or_create_video
-    self.video = Video.find_or_create_by_url(url) if url
+    self.video = Video.find_or_create_by_url(:url => url) if url
   end
 
   def not_implemented
