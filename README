@@ -3,15 +3,15 @@
 remember me fixes for devise
 regexp routes in rails issue
 
-regexp urls before going out to embedly
+validate urls before embedly oembed api call
 make root page videos/index
 videos on users/show
 follow
-show following on posts/index and users/show
 unfollow
-feed na videos into app automatically
 feed_items/index if logged in, videos/index if not
+show follows on feed_items/index and users/show
 gravatars
+feed na videos into app one time, then automatically
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update

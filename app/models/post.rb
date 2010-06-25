@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
 
-  before_validation :canonicalize_url, :validate_url, :find_or_create_video, :on => :create
+  before_validation :canonicalize_url, :validate_url, :find_or_create_video_by_url, :on => :create
 
   validates_presence_of :user_id, :video_id
   validates_uniqueness_of :video_id, :scope => :user_id
@@ -19,9 +19,10 @@ class Post < ActiveRecord::Base
   end
 
   def validate_url
+    errors[:base] << "is not a valid video url" unless Embedly.valid_url?(url)
   end
 
-  def find_or_create_video
+  def find_or_create_video_by_url
     self.video = Video.find_or_create_by_url(:url => url) if url
   end
 

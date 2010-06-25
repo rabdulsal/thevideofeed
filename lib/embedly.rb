@@ -8,4 +8,8 @@ class Embedly
     {}
   end
 
+  def self.valid_url?(url)
+    true
+  end
+
 end

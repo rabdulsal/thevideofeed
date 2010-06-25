@@ -1,20 +1,19 @@
 class Video < ActiveRecord::Base
 
-  # attr_accessible # videos not user-accessible, so no need to protect assignment
+  # attr_accessible not needed, videos are only user-accessible via posts
 
   has_many :posts
 
   before_validation :set_attrs_via_embedly, :set_default_title_if_blank, :on => :create
 
-  validates_presence_of :url, :html, :width, :height, :version, :title
+  validates_presence_of :url, :html, :title
   validates_uniqueness_of :url
-  validates_numericality_of :width, :height
 
   before_update :not_implemented
   before_destroy :not_implemented
 
   def set_attrs_via_embedly
-    attrs = Embedly.get_attrs(url)
+    attrs = Embedly.get_attrs url
     errors[:base] << "is not a video" unless attrs['type'] == 'video'
     self.attributes = attrs
   end

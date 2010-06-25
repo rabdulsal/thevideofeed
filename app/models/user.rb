@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :posts
 
-  validates_presence_of :name, :username
+  validates_presence_of :name, :username, :email
   validates_uniqueness_of :username
   validates_length_of :username, :maximum => 15
   validates_format_of :username, :with => /^[a-zA-Z0-9\_]*?$/, :message => "can only contain letters, numbers and underscores"
