@@ -34,7 +34,6 @@ User.blueprint do
 end
 
 Video.blueprint do
-  canonical_url { "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
   author_name { "cotter548" }
   author_url { "http://www.youtube.com/user/cotter548" }
   description { "RickRoll'd\r\n\r\nHe's Back!\r\nOMG OMG OMG OVER 30 MILLION RICKROLL'd!" }

@@ -1,25 +1,30 @@
 class Video < ActiveRecord::Base
 
-  attr_accessible # n/a
+  # attr_accessible # videos not user-accessible, so no need to protect assignment
 
   has_many :posts
 
-  before_validation :set_attrs_via_oembed, :set_default_title_if_blank, :on => :create
+  before_validation :set_oembed_attrs_via_embedly, :set_default_title_if_blank, :on => :create
 
-  validates_presence_of :canonical_url, :html, :width, :height, :version, :title
-  validates_uniqueness_of :canonical_url
+  validates_presence_of :url, :html, :width, :height, :version, :title
+  validates_uniqueness_of :url
   validates_numericality_of :width, :height
 
   before_update :not_implemented
   before_destroy :not_implemented
 
-  def set_attrs_via_oembed
-    # TODO validate against regexp, get response from embedly, confirm is video
-    # set attrs, etc
+  # TODO validate against regexp before hitting embedly
+
+  def set_oembed_attrs_via_embedly
+    embedly_url = "http://api.embed.ly/v1/api/oembed?url=#{url}"
+    response = RestClient.get embedly_url
+    attrs = JSON.parse response.body
+    errors[:base] << "is not a video" unless attrs['type'] == 'video'
+    self.attributes = attrs
   end
 
   def set_default_title_if_blank
-    title = 'untitled' if title.blank?
+    self.title = 'untitled' if title.blank?
   end
 
   def not_implemented

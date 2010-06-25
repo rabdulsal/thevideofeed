@@ -1,8 +1,15 @@
 <div class="grid_10">
 
-  <h2>feed</h2>
-
-  <p>...</p>
+  <h2>videos</h2>
+  
+  <div id="videos">
+    <% @videos.each do |video| %>
+      <div id="video">
+        <h3><%= link_to video.title, video %></h3>
+        <p><%=raw video.html %></p>
+      </div>
+    <% end if @videos %>
+  </div>
 
 </div>
 

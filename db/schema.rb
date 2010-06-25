@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100624234649) do
+ActiveRecord::Schema.define(:version => 20100625005257) do
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20100624234649) do
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "videos", :force => true do |t|
-    t.string   "canonical_url"
     t.string   "version"
     t.string   "title"
     t.string   "author_name"
@@ -72,7 +71,5 @@ ActiveRecord::Schema.define(:version => 20100624234649) do
     t.datetime "updated_at"
     t.string   "url"
   end
-
-  add_index "videos", ["canonical_url"], :name => "index_videos_on_canonical_url", :unique => true
 
 end

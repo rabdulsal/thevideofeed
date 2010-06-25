@@ -1,12 +1,10 @@
 Thevideofeed::Application.routes.draw do |map|
-  resources :videos
-
-  resources :posts
-
 
   root :to => 'home#index'
 
+  resources :posts, :only => [:new, :create]
   map.resources :users, :only => [:new, :create]
+  resources :videos, :only => :show
 
   devise_for :users
   #     new_user_session GET  /users/sign_in                 {:controller=>"devise/sessions", :action=>"new"}
@@ -20,12 +18,15 @@ Thevideofeed::Application.routes.draw do |map|
   #          user_unlock POST /users/unlock(.:format)        {:controller=>"devise/unlocks", :action=>"create"}
   #      new_user_unlock GET  /users/unlock/new(.:format)    {:controller=>"devise/unlocks", :action=>"new"}
 
-
+  # /admin
   namespace :admin do
     root :to => 'home#index'
   end
 
-  # last route
+  # /1-rick-roll-d -- videos to_param always starts with a number
+  match '/:id' => 'videos#show', :constraints => {:id => /\d/}, :as => :video
+
+  # /trevor -- usernames can't start with a number
   match '/:id' => 'users#show', :as => :user
 
 end
