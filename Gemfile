@@ -12,6 +12,7 @@ gem 'pg', '0.9.0'
 
 gem 'rest-client', '1.5.1', :require => 'rest_client'
 gem 'json', '1.4.3'
+gem 'rack-no-www', '0.0.1', :require => 'rack/no-www'
 
 group :development do
   gem 'sqlite3-ruby', '1.3.0', :require => 'sqlite3'

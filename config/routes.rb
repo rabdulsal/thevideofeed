@@ -23,10 +23,10 @@ Thevideofeed::Application.routes.draw do |map|
     root :to => 'home#index'
   end
 
-  # note https://rails.lighthouseapp.com/projects/8994-ruby-on-rails/tickets/4963
-  match '/videos/:id' => 'videos#show', :as => :video
+  # /1-rickroll-d (videos always start with a number)
+  match '/:id' => 'videos#show', :constraints => { :id => /\d.+/ }, :as => :video
 
-  # /trevor
+  # /trevor (users never start with a number)
   match '/:id' => 'users#show', :as => :user
 
 end
