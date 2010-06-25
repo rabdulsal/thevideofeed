@@ -13,8 +13,6 @@ class Video < ActiveRecord::Base
   before_update :not_implemented
   before_destroy :not_implemented
 
-  # TODO validate against regexp before hitting embedly
-
   def set_attrs_via_embedly
     attrs = Embedly.get_attrs(url)
     errors[:base] << "is not a video" unless attrs['type'] == 'video'

@@ -18,14 +18,14 @@ class PostsControllerTest < ActionController::TestCase
   end
 
   test "create not signed in" do
-    post :create, :url => Post.plan['url']
+    post :create, :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0"
     assert_redirected_to new_user_session_path
   end
 
   test "create" do
     sign_in!
     assert_difference 'Post.count' do
-      post :create, :url => Post.plan['url']
+      post :create, :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0"
       assert_redirected_to root_path
     end
   end
