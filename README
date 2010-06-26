@@ -12,6 +12,8 @@ show follows on feed_items/index and users/show
 gravatars
 feed na videos into app one time, then automatically
 restrict usernames from being "admin" "users" etc
+pagination like reelroulette
+comments
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update
