@@ -1,7 +1,6 @@
 # TODOs
 
 remember me fixes for devise
-regexp routes in rails issue
 
 validate urls before embedly oembed api call
 make root page videos/index
@@ -12,6 +11,7 @@ feed_items/index if logged in, videos/index if not
 show follows on feed_items/index and users/show
 gravatars
 feed na videos into app one time, then automatically
+restrict usernames from being "admin" "users" etc
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update
