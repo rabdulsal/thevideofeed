@@ -20,12 +20,15 @@ class UserTest < ActiveSupport::TestCase
     assert u.errors[:username]
   end
 
-  test "validates unique of username" do
+  test "validates unique of username case insensitive" do
     u1 = User.make(:username => 'test')
     assert u1.valid?
     u2 = User.new(:username => 'test')
     assert !u2.valid?
     assert u2.errors[:username]
+    u3 = User.new(:username => 'TEST')
+    assert !u3.valid?
+    assert u3.errors[:username]
   end
 
   test "validates unique email" do
