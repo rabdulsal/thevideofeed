@@ -3,7 +3,7 @@ development:
   mailer: noreply@thevideofeed.com
   name: thevideofeed
   admin_password: test
-  hoptoad_key: a18fe0a2cd5f68f3a64de0c6ea20eb8f
+  hoptoad_key: f4fee383c087c4eaea1f228ab066c38c
 
 test:
   host: thevideofeed.test
@@ -17,4 +17,4 @@ production:
   name: thevideofeed
   google_analytics: UA-2350501-12
   admin_password: 92dce5db985
-  hoptoad_key: a18fe0a2cd5f68f3a64de0c6ea20eb8f
+  hoptoad_key: f4fee383c087c4eaea1f228ab066c38c
