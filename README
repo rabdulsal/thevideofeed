@@ -1,6 +1,5 @@
 # TODOs
 
-remember me fixes for devise
 validate urls before embedly oembed api call
 make root page videos/index
 videos on users/show
@@ -16,5 +15,5 @@ update devise and change session key
 comments
 
 :cache => true for css/js on heroku
-heroku, bundler, rails update
+heroku, bundler, rails, devise updates
 hoptoad update, test
