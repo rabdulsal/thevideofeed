@@ -17,3 +17,4 @@ comments
 
 :cache => true for css/js on heroku
 heroku, bundler, rails update
+hoptoad update, test
