@@ -1,6 +1,5 @@
 # TODOs
 
-/users/username
 validate urls before embedly oembed api call
 make root page videos/index
 videos on users/show
@@ -12,4 +11,4 @@ gravatars
 feed na videos into app one time, then automatically
 pagination like reelroulette
 comments
-cache css/js on heroku
+heroku: bundler, css/js caching

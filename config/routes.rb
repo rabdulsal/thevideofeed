@@ -3,10 +3,10 @@ Thevideofeed::Application.routes.draw do |map|
   root :to => 'home#index'
 
   resources :posts, :only => [:new, :create]
-  map.resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create]
   resources :videos, :only => :show
 
-  devise_for :users
+  # devise routes
   #     new_user_session GET  /users/sign_in                 {:controller=>"devise/sessions", :action=>"new"}
   #         user_session POST /users/sign_in                 {:controller=>"devise/sessions", :action=>"create"}
   # destroy_user_session GET  /users/sign_out                {:controller=>"devise/sessions", :action=>"destroy"}
@@ -17,6 +17,7 @@ Thevideofeed::Application.routes.draw do |map|
   #                      GET  /users/unlock(.:format)        {:controller=>"devise/unlocks", :action=>"show"}
   #          user_unlock POST /users/unlock(.:format)        {:controller=>"devise/unlocks", :action=>"create"}
   #      new_user_unlock GET  /users/unlock/new(.:format)    {:controller=>"devise/unlocks", :action=>"new"}
+  devise_for :users
 
   # /admin
   namespace :admin do

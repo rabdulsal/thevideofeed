@@ -5,7 +5,7 @@ gem 'devise', '1.1.1'
 
 gem 'hoptoad_notifier', '2.3.2 '
 gem 'toadhopper', '1.0.4'
-gem 'right_aws', '1.10.0'
+# gem 'right_aws', '1.10.0'
 
 gem 'thin', '1.2.7'
 gem 'pg', '0.9.0'
