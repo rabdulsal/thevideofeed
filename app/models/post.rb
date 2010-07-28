@@ -14,6 +14,8 @@ class Post < ActiveRecord::Base
   before_update :not_implemented
   before_destroy :not_implemented
 
+  default_scope :order => 'created_at DESC'
+
   def canonicalize_url
     self.url = url.gsub(/(https?)(:\/\/)(www\.)?/, '').insert(0, 'http://www.').chomp if url
   end
