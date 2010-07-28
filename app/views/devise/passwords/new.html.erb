@@ -1,12 +1,12 @@
 <div class="grid_12">
-  <h2>Forgot your password?</h2>
+  <h2>forgot your password?</h2>
 
   <%= form_for(resource, :as => resource_name, :url => password_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <p><%= f.label :email %><br />
+    <p><%= f.label :email, 'email' %><br />
     <%= f.text_field :email %></p>
 
-    <p><%= f.submit "Send me reset password instructions" %></p>
+    <p><%= f.submit "send me reset password instructions" %></p>
   <% end %>
 </div>

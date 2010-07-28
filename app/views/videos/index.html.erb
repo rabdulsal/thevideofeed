@@ -2,6 +2,8 @@
 
   <h2>videos</h2>
   
+  <%= render 'posts/form' %>
+  
   <div id="videos">
     <% @videos.each do |video| %>
       <h3><%= link_to video.title, video %></h3>

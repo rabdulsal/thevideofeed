@@ -1,25 +1,25 @@
 <div class="grid_12">
-  <h2>Sign up</h2>
+  <h2>sign up</h2>
 
   <%= form_for @user || User.new do |f| %>
     <%= error_messages_for :user %>
 
-    <p><%= f.label :name, 'Full name' %><br />
+    <p><%= f.label :name, 'full name' %><br />
     <%= f.text_field :name %></p>
-    <p class="hint">Your full name will appear on your public profile</p>
+    <p class="hint">your full name will appear on your public profile</p>
 
-    <p><%= f.label :username %><br />
+    <p><%= f.label :username, 'username' %><br />
     <%= f.text_field :username %></p>
-    <p class="hint">Your public profile page: http://twitter.com/USERNAME</p>
+    <p class="hint">your public profile page: http://twitter.com/USERNAME</p>
 
-    <p><%= f.label :password %><br />
+    <p><%= f.label :password, 'password' %><br />
     <%= f.password_field :password %></p>
     
-    <p><%= f.label :email %><br />
+    <p><%= f.label :email, 'email' %><br />
     <%= f.text_field :email %></p>
-    <p class="hint">Let others find you by your email address (not publicly displayed)</p>
+    <p class="hint">let others find you by your email address (not publicly displayed)</p>
 
-    <p><%= f.submit "Sign up" %></p>
+    <p><%= f.submit "sign up" %></p>
   <% end %>
 </div>
 

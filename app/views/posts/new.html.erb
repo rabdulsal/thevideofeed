@@ -1,15 +1,5 @@
 <div class="grid_12">
   <h2>New post</h2>
-
-  <%= form_for @post || Post.new do |f| %>
-    <%= error_messages_for :post %>
-
-    <p><%= f.label :url, 'Video URL' %><br />
-    <%= f.text_field :url %></p>
-    <p class="hint">e.g. http://www.youtube.com/watch?v=oHg5SJYRHA0</p>
-
-    <p><%= f.submit "Post" %></p>
-  <% end %>
+  <%= render 'posts/form' %>
 </div>
 
-<script>$('#post_url').focus();</script>

@@ -1,0 +1,8 @@
+<%= form_for @post || Post.new do |f| %>
+  <%= error_messages_for :post %>
+
+  <p><%= f.text_field :url %> <%= f.submit "post" %></p>
+  <p class="hint">e.g. http://www.youtube.com/watch?v=oHg5SJYRHA0</p>
+<% end %>
+
+<script>$('#post_url').focus();</script>
