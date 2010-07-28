@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new :url => params[:url]
+    @post = current_user.posts.new :url => params[:post][:url]
     if @post.save
       redirect_to root_path
     else

@@ -7,8 +7,6 @@ class DeviseTest < ActionDispatch::IntegrationTest
     assert_response :success
     get new_user_password_path
     assert_response :success
-    get new_user_unlock_path
-    assert_response :success
     get edit_user_password_path
     assert_response :success
     open_session do |s|

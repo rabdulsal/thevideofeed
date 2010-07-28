@@ -9,14 +9,14 @@ class PostsControllerTest < ActionController::TestCase
   test "create" do
     sign_in!
     assert_difference 'Post.count' do
-      post :create, :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0"
+      post :create, :post => { :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
       assert_redirected_to root_path
     end
   end
 
   test "create not logged in" do
     assert_no_difference 'Post.count' do
-      post :create, :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0"
+      post :create, :post => { :url => "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
       assert_redirected_to new_user_session_path
     end
   end
@@ -24,7 +24,7 @@ class PostsControllerTest < ActionController::TestCase
   test "create with invalid url" do
     sign_in!
     assert_no_difference 'Post.count' do
-      post :create, :url => "http://www.youtube.com/"
+      post :create, :post => { :url => "http://www.youtube.com/" }
       assert_template :new
     end
   end
@@ -32,7 +32,7 @@ class PostsControllerTest < ActionController::TestCase
   test "create with photo url" do
     sign_in!
     assert_no_difference 'Post.count' do
-      post :create, :url => "http://www.flickr.com/photos/hartsell/4624147095/"
+      post :create, :post => { :url => "http://www.flickr.com/photos/hartsell/4624147095/" }
       assert_template :new
     end
   end

@@ -5,8 +5,8 @@ unfollow
 feed_items/index if logged in, videos/index if not
 show follows on feed_items/index and users/show
 gravatars
-feed na videos into app one time, then automatically
 pagination like reelroulette
 validate urls before embedly oembed api call
 comments
+feed na videos into app one time, then automatically
 heroku: bundler, css/js caching
