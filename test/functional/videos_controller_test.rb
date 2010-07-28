@@ -6,6 +6,17 @@ class VideosControllerTest < ActionController::TestCase
     Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
   end
 
+  test "index" do
+    get "index"
+    assert_response :success
+  end
+
+  test "index with posts" do
+    Post.make
+    get "index"
+    assert_response :success
+  end
+
   test "show" do
     v = Video.make
     get :show, :id => v.to_param

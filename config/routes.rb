@@ -1,6 +1,6 @@
 Thevideofeed::Application.routes.draw do |map|
 
-  root :to => 'home#index'
+  root :to => 'videos#index'
 
   resources :posts, :only => [:new, :create]
   resources :users, :only => [:new, :create]

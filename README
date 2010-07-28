@@ -1,7 +1,5 @@
 # TODOs
 
-validate urls before embedly oembed api call
-make root page videos/index
 videos on users/show
 follow
 unfollow
@@ -10,5 +8,6 @@ show follows on feed_items/index and users/show
 gravatars
 feed na videos into app one time, then automatically
 pagination like reelroulette
+validate urls before embedly oembed api call
 comments
 heroku: bundler, css/js caching
