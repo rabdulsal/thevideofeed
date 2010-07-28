@@ -4,10 +4,8 @@
   
   <div id="videos">
     <% @videos.each do |video| %>
-      <div id="video">
-        <h3><%= link_to video.title, video %></h3>
-        <p><%=raw video.html %></p>
-      </div>
+      <h3><%= link_to video.title, video %></h3>
+      <%= render 'videos/video', :video => video %>
     <% end if @videos %>
   </div>
 

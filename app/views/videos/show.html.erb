@@ -1,15 +1,7 @@
-<div class="grid_10">
+<div class="grid_12">
 
   <h2><%= @video %></h2>
 
-  <p>...</p>
-
-</div>
-
-<div id="users" class="grid_2">
-
-  <h2>posted by</h2>
-
-  <p>...</p>
-
+  <%= render 'videos/video', :video => @video %>
+  
 </div>
