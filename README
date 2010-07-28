@@ -1,5 +1,6 @@
 # TODOs
 
+/users/username
 validate urls before embedly oembed api call
 make root page videos/index
 videos on users/show
@@ -9,11 +10,6 @@ feed_items/index if logged in, videos/index if not
 show follows on feed_items/index and users/show
 gravatars
 feed na videos into app one time, then automatically
-restrict usernames from being "admin" "users" etc
 pagination like reelroulette
-update devise and change session key
 comments
-
-:cache => true for css/js on heroku
-heroku, bundler, rails, devise updates
-hoptoad update, test
+cache css/js on heroku
