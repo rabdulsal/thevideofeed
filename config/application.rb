@@ -14,7 +14,7 @@ module Thevideofeed
     config.action_mailer.default_url_options = { :host => CONFIG['host'] }
 
     # Add additional load paths for your own custom dirs
-    config.load_paths += %W( #{config.root}/lib )
+    config.autoload_paths += %W( #{config.root}/lib )
 
     # Middleware
     config.middleware.use Rack::NoWWW if Rails.env.production?
