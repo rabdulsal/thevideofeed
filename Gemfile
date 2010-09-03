@@ -8,11 +8,11 @@ gem 'toadhopper', '1.0.4'
 
 gem 'thin', '1.2.7'
 gem 'pg', '0.9.0'
-gem 'heroku', '1.9.14'
 
-gem 'rest-client', '~> 1.4.0', :require => 'rest_client'
+gem 'rest-client', '1.6.1', :require => 'rest_client'
 gem 'json', '1.4.6'
 gem 'rack-no-www', '0.0.1', :require => 'rack/no-www'
+gem 'asset-resource', '0.3.1'
 
 group :development do
   gem 'sqlite3-ruby', '1.3.0', :require => 'sqlite3'
