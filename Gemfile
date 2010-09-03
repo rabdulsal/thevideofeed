@@ -1,17 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.0.rc'
-gem 'devise', '1.1.1'
+gem 'rails', '3.0.0'
+gem 'devise', '1.1.2'
 
-gem 'hoptoad_notifier', '2.3.2 '
+gem 'hoptoad_notifier', '2.3.6'
 gem 'toadhopper', '1.0.4'
-# gem 'right_aws', '1.10.0'
 
 gem 'thin', '1.2.7'
 gem 'pg', '0.9.0'
 
-gem 'rest-client', '1.6.0', :require => 'rest_client'
-gem 'json', '1.4.3'
+gem 'rest-client', '1.6.1', :require => 'rest_client'
+gem 'json', '1.4.6'
 gem 'rack-no-www', '0.0.1', :require => 'rack/no-www'
 
 group :development do

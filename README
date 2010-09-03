@@ -1,5 +1,6 @@
-# TODOs
+== todo
 
+heroku css/js caching
 follow
 unfollow
 feed_items/index if logged in, videos/index if not
@@ -9,4 +10,10 @@ pagination like reelroulette
 validate urls before embedly oembed api call
 comments
 feed na videos into app one time, then automatically
-heroku: bundler, css/js caching
+http://github.com/jordi/leftright
+cross table caching gem (e.g. cache embed code from videos->feed_items)
+
+== links
+
+http://github.com/pauldix/feedzirra
+http://superfeedr.com/

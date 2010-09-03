@@ -4,7 +4,7 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-Rails::Application.load_tasks
+Thevideofeed::Application.load_tasks
 
 namespace :heroku do
   desc "PostgreSQL database backups from Heroku to Amazon S3"

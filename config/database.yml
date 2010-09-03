@@ -6,7 +6,7 @@ development:
 # postgresql
   adapter: postgresql
   database: thevideofeed_development
-  username: root
+  username: trevorturk
   password: 
   host: localhost
 
