@@ -25,4 +25,5 @@ group :test do
   gem 'faker', '0.3.1'
   gem 'autotest-rails', '4.1.0'
   gem 'mocha', '0.9.8'
+  gem 'leftright'
 end

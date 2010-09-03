@@ -7,12 +7,12 @@ show follows on feed_items/index and users/show
 gravatars
 pagination like reelroulette
 validate urls before embedly oembed api call
+
+== later
+
+show thumbs, click for embeds
+fetch videos from rss, newathens, youtube favs
 comments
-feed na videos into app one time, then automatically
-
-== related
-
-http://github.com/jordi/leftright
 
 == oss
 
