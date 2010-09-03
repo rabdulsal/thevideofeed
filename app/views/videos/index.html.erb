@@ -2,7 +2,7 @@
 
   <h2>videos</h2>
   
-  <%= render 'posts/form' %>
+  <%= render 'posts/form' if user_signed_in? %>
   
   <div id="videos">
     <% @videos.each do |video| %>
