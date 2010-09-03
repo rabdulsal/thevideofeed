@@ -5,6 +5,7 @@ follow
 unfollow
 feed_items/index if logged in, video/index if not
 show follows on feed_items/index and users/show
+vimeo video sizing issue
 
 == later
 
@@ -12,7 +13,8 @@ gravatars
 improve users/show
 improve videos/show
 show thumbs, click for embeds
-fetch videos from rss, newathens, youtube favs
+fetch videos from rss, newathens, youtube favorites
+oath twitter, facebook, gmail
 comments
 auto-update embedly regex
 
