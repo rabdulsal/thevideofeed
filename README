@@ -10,6 +10,7 @@ validate urls before embedly oembed api call
 
 == later
 
+improve videos/show
 show thumbs, click for embeds
 fetch videos from rss, newathens, youtube favs
 comments
