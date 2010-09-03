@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :video
 
-  before_validation :canonicalize_url, :validate_url, :find_or_create_video_by_url, :on => :create
+  before_validation :validate_url, :find_or_create_video_by_url, :on => :create
 
   validates_presence_of :user_id, :video_id
   validates_uniqueness_of :video_id, :scope => :user_id
@@ -15,10 +15,6 @@ class Post < ActiveRecord::Base
   before_destroy :not_implemented
 
   default_scope :order => 'created_at DESC'
-
-  def canonicalize_url
-    self.url = url.gsub(/(https?)(:\/\/)(www\.)?/, '').insert(0, 'http://www.').chomp if url
-  end
 
   def validate_url
     errors[:base] << "is not a valid video url" unless Embedly.valid_url?(url)
