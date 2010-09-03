@@ -13,15 +13,6 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /^[a-zA-Z0-9\_]*?$/, :message => "can only contain letters, numbers and underscores"
   validates_format_of :username, :with => /^[a-zA-Z]/, :message => "must begin with a letter"
 
-  before_destroy :not_implemented
-
-  def not_implemented
-    raise 'NotImplementedError'
-    # need to clean up posts by user, videos with no other asssociated posts,
-    # follows for user, follows by user, feed items for user,
-    # feed items by user (delete or change user getting credit for post)
-  end
-
   def to_s
     username
   end

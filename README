@@ -1,19 +1,20 @@
 == todo
 
+pagination like reelroulette
 follow
 unfollow
-feed_items/index if logged in, videos/index if not
+feed_items/index if logged in, video/index if not
 show follows on feed_items/index and users/show
-gravatars
-pagination like reelroulette
-validate urls before embedly oembed api call
 
 == later
 
+gravatars
+improve users/show
 improve videos/show
 show thumbs, click for embeds
 fetch videos from rss, newathens, youtube favs
 comments
+auto-update embedly regex
 
 == oss
 

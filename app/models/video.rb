@@ -9,12 +9,10 @@ class Video < ActiveRecord::Base
   validates_presence_of :url, :html, :title
   validates_uniqueness_of :url
 
-  before_update :not_implemented
-  before_destroy :not_implemented
-
   default_scope :order => 'created_at DESC'
 
   def set_attrs_via_embedly
+    errors[:base] << "is not valid" unless Embedly.valid_url?(url)
     attrs = Embedly.get_attrs url
     errors[:base] << "is not a video" unless attrs['type'] == 'video'
     self.attributes = attrs
@@ -22,10 +20,6 @@ class Video < ActiveRecord::Base
 
   def set_default_title_if_blank
     self.title = 'untitled' if title.blank?
-  end
-
-  def not_implemented
-    raise 'NotImplementedError'
   end
 
   def to_s
