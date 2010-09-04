@@ -22,6 +22,20 @@ auto-update embedly regex
 
 cross table caching gem (e.g. cache embed code from videos->feed_items)
 
+following notification feed
+
+rss feed(s)
+
+indexes
+move all queries from controllers into models
+cache user/video stuff in feed_items?
+http://blog.evanweaver.com/articles/2007/02/12/table-indexes-in-rails/
+http://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations
+add_index :feed_items, [:user_id, :post_created_at]
+add_index :posts, [:user_id, :created_at]
+add_index :posts, [:video_id, :created_at]
+add_index :videos, :created_at
+
 == notes
 
 http://github.com/pauldix/feedzirra

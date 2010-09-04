@@ -2,10 +2,6 @@ require 'test_helper'
 
 class VideosControllerTest < ActionController::TestCase
 
-  setup do
-    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
-  end
-
   test "index" do
     get "index"
     assert_response :success

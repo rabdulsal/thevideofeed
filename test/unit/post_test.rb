@@ -2,23 +2,27 @@ require 'test_helper'
 
 class PostTest < ActiveSupport::TestCase
 
-  setup do
-    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS
-  end
-
   test "make" do
     p = Post.make
     assert p.valid?
+  end
+
+  test "is not valid without a user_id" do
+    p = Post.new
+    assert_equal false, p.valid?
+    assert p.errors[:user_id]
   end
 
   test "create" do
     u = User.make
     Embedly.expects(:get_attrs).times(1).returns EMBEDLY_VIDEO_ATTRS
     assert_difference 'Post.count' do
-      u.posts.create!(:url => TEST_URL)
+      assert_difference 'u.posts_count' do
+        u.posts.create!(:url => TEST_URL)
+        u.reload
+      end
     end
   end
-
 
   test "invalid urls don't hit the embedly api" do
     u = User.make

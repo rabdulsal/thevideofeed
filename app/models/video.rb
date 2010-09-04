@@ -11,8 +11,6 @@ class Video < ActiveRecord::Base
   validates_presence_of :url, :html, :title
   validates_uniqueness_of :url
 
-  default_scope :order => 'created_at DESC'
-
   def set_attrs_via_embedly
     errors[:base] << "is not valid" unless Embedly.valid_url?(url)
     attrs = Embedly.get_attrs url

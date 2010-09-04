@@ -1,4 +1,5 @@
 ENV["RAILS_ENV"] = "test"
+ENV["TEST_REMOTE"] ||= "false"
 require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
@@ -10,6 +11,9 @@ class ActiveSupport::TestCase
   setup do
     # reset machinist
     Sham.reset
+
+    # stub out remote api calls unless "rake test:remote"
+    Embedly.stubs(:get_attrs).returns EMBEDLY_VIDEO_ATTRS unless ENV["TEST_REMOTE"] == "true"
   end
 
   # sign in as user, pass options if necessary -- sign_in!(:username => 'joe')

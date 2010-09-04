@@ -32,8 +32,8 @@ task :cron => :environment do
 end
 
 namespace :heroku do
+  desc "Reads config/config.yml and sending production configuration variables to Heroku"
   task :config do
-    puts "Reading config/config.yml and sending production configuration variables to Heroku..."
     CONFIG = YAML.load_file('config/config.yml')['production'] rescue {}
     command = "heroku config:add"
     CONFIG.each {|key, val| command << " #{key}=#{val} " if val }
@@ -42,8 +42,8 @@ namespace :heroku do
 end
 
 namespace :test do
-  desc "Run remote tests"
-  task :remote do
+  desc "Runs remote tests"
+  task :remote => :environment do
     Dir.glob('test/remote/*.rb').each do |file|
       ruby file
     end
