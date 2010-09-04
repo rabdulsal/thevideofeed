@@ -2,13 +2,15 @@ require 'test_helper'
 
 class FeedItemTest < ActiveSupport::TestCase
 
-  test "requires user_id, post_id, poster_id, post_created_at" do
+  test "validates presence" do
     assert_no_difference 'FeedItem.count' do
       r = FeedItem.create
       assert r.errors[:user_id]
+      assert r.errors[:post_created_at]
       assert r.errors[:post_id]
       assert r.errors[:poster_id]
-      assert r.errors[:post_created_at]
+      assert r.errors[:video_id]
+      assert r.errors[:post_cache]
     end
   end
 
@@ -26,6 +28,11 @@ class FeedItemTest < ActiveSupport::TestCase
   test "has one poster" do
     f = FeedItem.make
     assert_equal f.post.user.id, f.poster_id
+  end
+
+  test "has one video" do
+    f = FeedItem.make
+    assert_equal f.post.video.id, f.video_id
   end
 
   test "post_created_at is created_at of post" do

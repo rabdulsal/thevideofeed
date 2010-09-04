@@ -26,4 +26,5 @@ class Follow < ActiveRecord::Base
   def unbackfill_posts
     FeedItem.unbackfill(follower, following)
   end
+
 end

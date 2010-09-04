@@ -1,10 +1,11 @@
 Thevideofeed::Application.routes.draw do
 
-  root :to => 'videos#index'
+  root :to => 'home#index'
 
+  match 'feed' => 'feed_items#index', :as => :feed
   resources :posts, :only => [:new, :create]
   resources :users, :only => [:new, :create]
-  resources :videos, :only => :show
+  resources :videos, :only => [:index, :show]
 
   # devise routes
   #     new_user_session GET  /users/sign_in                 {:controller=>"devise/sessions", :action=>"new"}
@@ -25,9 +26,11 @@ Thevideofeed::Application.routes.draw do
   end
 
   # /1-rickroll-d (videos always start with a number)
-  match '/:id' => 'videos#show', :constraints => { :id => /\d.+/ }, :as => :video
+  match ':id' => 'videos#show', :constraints => { :id => /\d.+/ }, :as => :video
 
   # /trevor (users never start with a number)
-  match '/:id' => 'users#show', :as => :user
+  match ':id' => 'users#show', :as => :user
+  match ':id/follow' => 'users#follow', :via => :post, :as => :user_follow
+  match ':id/unfollow' => 'users#unfollow', :via => :post, :as => :user_unfollow
 
 end

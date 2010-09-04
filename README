@@ -1,40 +1,21 @@
 == todo
 
-follow
-unfollow
-feed_items/index if logged in, video/index if not
-show follows on feed_items/index and users/show
-vimeo video sizing issue
-
-gravatars
+tests for post_cache
+check that indexes are being used
+cleanup after post, user delete
+cleanup after post, user update (post_cache)
+allow user follow/unfollow
+users/show
 improve users/show
 improve videos/show
-
-show thumbs, click for embeds
-
+gravatars
 fetch videos from rss, newathens, youtube favorites
 oath twitter, facebook, gmail
-
 comments
 search
-
 auto-update embedly regex
-
-cross table caching gem (e.g. cache embed code from videos->feed_items)
-
 following notification feed
-
 rss feed(s)
-
-indexes
-move all queries from controllers into models
-cache user/video stuff in feed_items?
-http://blog.evanweaver.com/articles/2007/02/12/table-indexes-in-rails/
-http://tomafro.net/2009/08/using-indexes-in-rails-index-your-associations
-add_index :feed_items, [:user_id, :post_created_at]
-add_index :posts, [:user_id, :created_at]
-add_index :posts, [:video_id, :created_at]
-add_index :videos, :created_at
 
 == notes
 

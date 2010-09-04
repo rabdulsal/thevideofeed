@@ -11,6 +11,11 @@ class Video < ActiveRecord::Base
   validates_presence_of :url, :html, :title
   validates_uniqueness_of :url
 
+  def self.get opts={}
+    opts[:page] ||= 1
+    paginate :page => opts[:page], :per_page => Video::MAX_PER_PAGE, :order => 'videos.created_at desc'
+  end
+
   def set_attrs_via_embedly
     errors[:base] << "is not valid" unless Embedly.valid_url?(url)
     attrs = Embedly.get_attrs url

@@ -1,7 +1,7 @@
 class VideosController < ApplicationController
 
   def index
-    @videos = Video.paginate(:page => params[:page], :per_page => Video::MAX_PER_PAGE)
+    @videos = Video.get :page => params[:page]
     render @videos if request.xhr?
   end
 

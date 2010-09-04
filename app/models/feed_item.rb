@@ -5,9 +5,15 @@ class FeedItem < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
   belongs_to :poster, :foreign_key => 'poster_id', :class_name => 'User'
+  belongs_to :video
 
-  validates_presence_of :user_id, :post_id, :poster_id, :post_created_at
+  validates_presence_of :user_id, :post_created_at, :post_id, :poster_id, :video_id, :post_cache
   validates_uniqueness_of :user_id, :scope => :post_id
+
+  def self.get opts={}
+    opts[:page] ||= 1
+    paginate :page => opts[:page], :per_page => Video::MAX_PER_PAGE, :order => 'feed_items.post_created_at desc'
+  end
 
   def self.populate(post)
     users = []
@@ -29,6 +35,18 @@ class FeedItem < ActiveRecord::Base
   end
 
   def self.insert(user, post)
-    FeedItem.create {|f| f.user_id = user.id; f.post_id = post.id; f.poster_id = post.user_id; f.post_created_at = post.created_at}
+    FeedItem.create do |f|
+      f.user_id = user.id
+      f.post_created_at = post.created_at
+      f.post_id = post.id
+      f.poster_id = post.user_id
+      f.video_id = post.video_id
+      f.post_cache = post.to_cache
+    end
   end
+
+  def cached_post
+    JSON.parse(post_cache)['post']
+  end
+
 end

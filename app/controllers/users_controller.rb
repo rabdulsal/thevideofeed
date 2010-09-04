@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:follow, :unfollow]
+
   def show
     @user = User.find_by_username! params[:id]
   end
@@ -17,8 +19,16 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    raise 'NotImplementedError'
+  def follow
+    @user = User.find_by_login!(params[:id])
+    current_user.follow(@user)
+    redirect_to @user
+  end
+
+  def unfollow
+    @user = User.find_by_login!(params[:id])
+    current_user.unfollow(@user)
+    redirect_to @user
   end
 
 end

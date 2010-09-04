@@ -27,5 +27,11 @@ class Post < ActiveRecord::Base
     FeedItem.unpopulate(self)
   end
 
+  def to_cache
+    to_json :include => {
+      :user => {:only => [:email, :name, :username], :methods => [:to_s, :to_param]},
+      :video => {:methods => [:to_s, :to_param]}
+      }
+  end
 
 end

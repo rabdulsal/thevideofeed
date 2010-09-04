@@ -11,9 +11,11 @@ end
 FeedItem.blueprint do
   post { Post.make }
   user { User.make }
+  post_created_at { post.created_at }
   post_id { post.id }
   poster_id { post.user_id }
-  post_created_at { post.created_at }
+  video_id { post.video_id }
+  post_cache { post.to_cache }
 end
 
 Follow.blueprint do

@@ -2,6 +2,8 @@
 
   <h2><%= @video %></h2>
 
-  <%= render 'videos/video', :video => @video %>
+  <div class="video">
+    <p><%=raw @video.html %></p>
+  </div>
   
 </div>

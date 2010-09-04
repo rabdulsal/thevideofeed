@@ -10,14 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100904173113) do
+ActiveRecord::Schema.define(:version => 20100904215031) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "user_id"
+    t.datetime "post_created_at"
     t.integer  "post_id"
     t.integer  "poster_id"
-    t.datetime "post_created_at"
+    t.integer  "video_id"
+    t.text     "post_cache"
   end
+
+  add_index "feed_items", ["user_id", "post_created_at"], :name => "index_feed_items_on_user_id_and_post_created_at"
 
   create_table "follows", :force => true do |t|
     t.integer  "follower_id"
@@ -32,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20100904173113) do
     t.datetime "updated_at"
   end
 
-  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
-  add_index "posts", ["video_id"], :name => "index_posts_on_video_id"
+  add_index "posts", ["user_id", "created_at"], :name => "index_posts_on_user_id_and_created_at"
+  add_index "posts", ["video_id", "created_at"], :name => "index_posts_on_video_id_and_created_at"
 
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -87,5 +91,7 @@ ActiveRecord::Schema.define(:version => 20100904173113) do
     t.datetime "updated_at"
     t.string   "url"
   end
+
+  add_index "videos", ["created_at"], :name => "index_videos_on_created_at"
 
 end
