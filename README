@@ -1,6 +1,5 @@
 == todo
 
-pagination like reelroulette
 follow
 unfollow
 feed_items/index if logged in, video/index if not
@@ -16,6 +15,7 @@ show thumbs, click for embeds
 fetch videos from rss, newathens, youtube favorites
 oath twitter, facebook, gmail
 comments
+search
 auto-update embedly regex
 
 == oss

@@ -2,6 +2,8 @@ class Video < ActiveRecord::Base
 
   # attr_accessible not needed, videos are only user-accessible via posts
 
+  MAX_PER_PAGE = 5
+
   has_many :posts
 
   before_validation :set_attrs_via_embedly, :set_default_title_if_blank, :on => :create

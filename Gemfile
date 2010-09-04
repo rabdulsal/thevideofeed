@@ -12,7 +12,7 @@ gem 'pg', '0.9.0'
 gem 'rest-client', '1.6.1', :require => 'rest_client'
 gem 'json', '1.4.6'
 gem 'rack-no-www', '0.0.1', :require => 'rack/no-www'
-gem 'asset-resource', '0.3.1'
+gem 'will_paginate', '3.0.pre2'
 
 group :development do
   gem 'sqlite3-ruby', '1.3.0', :require => 'sqlite3'

@@ -152,3 +152,36 @@ d,e);d={top:b.top-e.top+j,left:b.left-e.left+i};"using"in b?b.using.call(a,d):f.
 f.top,left:d.left-f.left}},offsetParent:function(){return this.map(function(){for(var a=this.offsetParent||s.body;a&&!/^body|html$/i.test(a.nodeName)&&c.css(a,"position")==="static";)a=a.offsetParent;return a})}});c.each(["Left","Top"],function(a,b){var d="scroll"+b;c.fn[d]=function(f){var e=this[0],j;if(!e)return null;if(f!==w)return this.each(function(){if(j=wa(this))j.scrollTo(!a?f:c(j).scrollLeft(),a?f:c(j).scrollTop());else this[d]=f});else return(j=wa(e))?"pageXOffset"in j?j[a?"pageYOffset":
 "pageXOffset"]:c.support.boxModel&&j.document.documentElement[d]||j.document.body[d]:e[d]}});c.each(["Height","Width"],function(a,b){var d=b.toLowerCase();c.fn["inner"+b]=function(){return this[0]?c.css(this[0],d,false,"padding"):null};c.fn["outer"+b]=function(f){return this[0]?c.css(this[0],d,false,f?"margin":"border"):null};c.fn[d]=function(f){var e=this[0];if(!e)return f==null?null:this;if(c.isFunction(f))return this.each(function(j){var i=c(this);i[d](f.call(this,j,i[d]()))});return"scrollTo"in
 e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["client"+b]||e.document.body["client"+b]:e.nodeType===9?Math.max(e.documentElement["client"+b],e.body["scroll"+b],e.documentElement["scroll"+b],e.body["offset"+b],e.documentElement["offset"+b]):f===w?c.css(e,d):this.css(d,typeof f==="string"?f:f+"px")}});A.jQuery=A.$=c})(window);
+
+// =======================================================================
+// PageLess - endless page
+//
+// Author: Jean-Sébastien Ney (jeansebastien.ney@gmail.com)
+// Contributors:
+//	Alexander Lang (langalex)
+// 	Lukas Rieder (Overbryd)
+//
+// Parameters:
+//    currentPage: current page (params[:page])
+//    distance: distance to the end of page in px when ajax query is fired
+//    loader: selector of the loader div (ajax activity indicator)
+//    loaderHtml: html code of the div if loader not used
+//    loaderImage: image inside the loader
+//    loaderMsg: displayed ajax message
+//    pagination: selector of the paginator divs. (if javascript is disabled paginator is required)
+//    params: paramaters for the ajax query, you can pass auth_token here
+//    totalPages: total number of pages
+//    url: URL used to request more data
+// Callback Parameters:
+//		scrape: A function to modify the incoming data. (Doesn't do anything by default)
+//		complete: A function to call when a new page has been loaded (optional)
+//		afterStopListener: A function to call when the last page has been loaded (optional)
+//
+// Requires: jquery + jquery dimensions
+//
+// Thanks to:
+//  * codemonky.com/post/34940898
+//  * www.unspace.ca/discover/pageless/
+//  * famspam.com/facebox
+// =======================================================================
+(function(a){a.pageless=function(b){a.isFunction(b)?b.call():a.pageless.init(b)};a.pageless.settings={currentPage:1,pagination:".pagination",url:location.href,params:{},distance:100,loaderImage:"/images/loader-alt.gif",scrape:function(b){return b}};a.pageless.loaderHtml=function(){return a.pageless.settings.loaderHtml||'<div id="pageless-loader" style="display:none;text-align:center;width:100%;">  <div class="msg" style="color:#333;font-size:2em"></div>  <img src="'+a.pageless.settings.loaderImage+'" title="load" alt="loading more results" style="margin: 10px auto; margin-bottom: 30px;" /></div>'};a.pageless.init=function(b){if(a.pageless.settings.inited){return}a.pageless.settings.inited=true;if(b){a.extend(a.pageless.settings,b)}if(a.pageless.settings.pagination){a(a.pageless.settings.pagination).remove()}a.pageless.startListener()};a.pageless.isLoading=false;a.fn.pageless=function(b){a.pageless.init(b);a.pageless.el=a(this);if(b.loader&&a(this).find(b.loader).length){a.pageless.loader=a(this).find(b.loader)}else{a.pageless.loader=a(a.pageless.loaderHtml());a(this).append(a.pageless.loader);if(!b.loaderHtml){a("#pageless-loader .msg").html(b.loaderMsg)}}};a.pageless.loading=function(b){if(b===true){a.pageless.isLoading=true;if(a.pageless.loader){a.pageless.loader.fadeIn("normal")}}else{a.pageless.isLoading=false;if(a.pageless.loader){a.pageless.loader.fadeOut("normal")}}};a.pageless.stopListener=function(){a(window).unbind(".pageless")};a.pageless.startListener=function(){a(window).bind("scroll.pageless",a.pageless.scroll)};a.pageless.scroll=function(){if(a.pageless.settings.totalPages<=a.pageless.settings.currentPage){a.pageless.stopListener();if(a.pageless.settings.afterStopListener){a.pageless.settings.afterStopListener.call()}return}var b=a(document).height()-a(window).scrollTop()-a(window).height();if(!a.pageless.isLoading&&(b<a.pageless.settings.distance)){a.pageless.loading(true);a.pageless.settings.currentPage++;a.extend(a.pageless.settings.params,{page:a.pageless.settings.currentPage});a.get(a.pageless.settings.url,a.pageless.settings.params,function(c){var c=a.pageless.settings.scrape(c);if(a.pageless.loader){a.pageless.loader.before(c)}else{a.pageless.el.append(c)}a.pageless.loading(false);if(a.pageless.settings.complete){a.pageless.settings.complete.call()}})}}})(jQuery);
