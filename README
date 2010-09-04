@@ -6,23 +6,23 @@ feed_items/index if logged in, video/index if not
 show follows on feed_items/index and users/show
 vimeo video sizing issue
 
-== later
-
 gravatars
 improve users/show
 improve videos/show
+
 show thumbs, click for embeds
+
 fetch videos from rss, newathens, youtube favorites
 oath twitter, facebook, gmail
+
 comments
 search
-auto-update embedly regex
 
-== oss
+auto-update embedly regex
 
 cross table caching gem (e.g. cache embed code from videos->feed_items)
 
-== links
+== notes
 
 http://github.com/pauldix/feedzirra
 http://superfeedr.com/
