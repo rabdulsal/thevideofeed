@@ -1,7 +1,7 @@
 == todo
 
-tests for post_cache
-check that indexes are being used
+tests for post_cache, etc
+check that indexes are being used (my pg gem)
 cleanup after post, user delete
 cleanup after post, user update (post_cache)
 allow user follow/unfollow
