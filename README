@@ -1,8 +1,5 @@
 == todo
 
-clean up after user unfollow?
-clean up after user delete?
-
 allow follow/unfollow
 
 gravatars
@@ -12,22 +9,25 @@ improve videos/show
 improve videos/index
 improve feed_items/index
 
-oath signin/signup via twitter, facebook, gmail
-collect contacts for users, find and suggest follow if in system
+auto fetch/post videos from user's twitter, facebook, youtube, rss
+create a newathens user and auto fetch/post with rss feed
 
-fetch and post videos from user's twitter, facebook, youtube, rss
-create a newathens user and rss feed for fetch/post
-fetch and add to user's feed items from their twitter/facebook feed
+oath signin/signup via twitter, facebook, gmail
+collect contacts per user, suggest to follow if in system
+allow optional cross-post to twitter/facebook when video posted manually
 
 comments
 search
+rss feeds
 follow notifications (feed? email?)
-rss feed(s)
 
 auto-update embedly regex
-new heroku postgres
-check that indexes are being used (my pg gem)
-refresh feed_items/post_cache after post/user/video update
+switch to new heroku postgres
+check that indexes are being used
+
+repopulate videos user should see in feed_items after user unfollow (former dupes)
+refresh feed_items/post_cache after post/user/video update (e.g. if user changes username)
+clean up after post/user/video delete (remove feed_items, repopulate feed_items with former dupes)
 
 == notes
 
