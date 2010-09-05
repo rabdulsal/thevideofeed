@@ -1,11 +1,10 @@
 == todo
 
-don't post duplicate videos in a feed
-allow follow/unfollow
 clean up after user unfollow?
 clean up after user delete?
 clean up after post update?
 clean up after user update?
+allow follow/unfollow
 
 gravatars
 users/show

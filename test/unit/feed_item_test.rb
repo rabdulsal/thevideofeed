@@ -67,6 +67,19 @@ class FeedItemTest < ActiveSupport::TestCase
     end
   end
 
+  test "same video won't be added to the same user's feed twice" do
+    follower = User.make
+    u1 = User.make
+    u2 = User.make
+    p1 = Post.make(:user => u1, :url => TEST_URL)
+    p2 = Post.make(:user => u2, :url => TEST_URL)
+    assert_difference 'follower.feed_items.count', 1 do
+      follower.follow(u1)
+      follower.follow(u2)
+      follower.reload
+    end
+  end
+
   test "post is added to post creator's followers' feed items" do
     poster = User.make
     follower = User.make
