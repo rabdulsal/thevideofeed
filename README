@@ -1,21 +1,34 @@
 == todo
 
-tests for post_cache, etc
-check that indexes are being used (my pg gem)
-cleanup after post, user delete
-cleanup after post, user update (post_cache)
-allow user follow/unfollow
+don't post duplicate videos in a feed
+allow follow/unfollow
+clean up after user unfollow?
+clean up after user delete?
+clean up after post update?
+clean up after user update?
+
+gravatars
 users/show
 improve users/show
 improve videos/show
-gravatars
-fetch videos from rss, newathens, youtube favorites
-oath twitter, facebook, gmail
+improve videos/index
+improve feed_items/index
+
+oath signin/signup via twitter, facebook, gmail
+collect contacts for users, find and suggest follow if in system
+
+fetch and post videos from user's twitter, facebook, youtube, rss
+create a newathens user and rss feed for fetch/post
+fetch and add to user's feed items from their twitter/facebook feed
+
 comments
 search
-auto-update embedly regex
-following notification feed
+follow notifications (feed? email?)
 rss feed(s)
+
+auto-update embedly regex
+new heroku postgres
+check that indexes are being used (my pg gem)
 
 == notes
 

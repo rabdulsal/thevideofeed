@@ -3,13 +3,10 @@ require 'test_helper'
 class VideosControllerTest < ActionController::TestCase
 
   test "index" do
-    get "index"
+    get :index
     assert_response :success
-  end
-
-  test "index with posts" do
-    Post.make
-    get "index"
+    Post.make; Post.make
+    get :index
     assert_response :success
   end
 

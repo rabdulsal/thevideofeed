@@ -8,7 +8,8 @@ class FeedItem < ActiveRecord::Base
   belongs_to :video
 
   validates_presence_of :user_id, :post_created_at, :post_id, :poster_id, :video_id, :post_cache
-  validates_uniqueness_of :user_id, :scope => :post_id
+  validates_uniqueness_of :post_id, :scope => :user_id
+  validates_uniqueness_of :video_id, :scope => :user_id
 
   def self.get opts={}
     opts[:page] ||= 1
