@@ -29,8 +29,10 @@ class Post < ActiveRecord::Base
 
   def to_cache
     to_json :include => {
-      :user => {:only => [:email, :name, :username], :methods => [:to_s, :to_param]},
-      :video => {:methods => [:to_s, :to_param]}
+      :user => {:only => [:email, :name, :username],
+        :methods => [:to_s, :to_param]},
+      :video => {:except => [:version, :cache_age],
+         :methods => [:to_s, :to_param]}
       }
   end
 

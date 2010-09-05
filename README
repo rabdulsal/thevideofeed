@@ -2,8 +2,7 @@
 
 clean up after user unfollow?
 clean up after user delete?
-clean up after post update?
-clean up after user update?
+
 allow follow/unfollow
 
 gravatars
@@ -28,6 +27,7 @@ rss feed(s)
 auto-update embedly regex
 new heroku postgres
 check that indexes are being used (my pg gem)
+refresh feed_items/post_cache after post/user/video update
 
 == notes
 

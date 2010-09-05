@@ -18,9 +18,7 @@ class Follow < ActiveRecord::Base
   end
 
   def backfill_posts
-    following.posts.find_each do |post|
-      FeedItem.insert(follower, post)
-    end
+    FeedItem.backfill(follower, following)
   end
 
   def unbackfill_posts
