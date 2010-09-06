@@ -4,6 +4,12 @@
 
   <div class="video">
     <p><%=raw @video.html %></p>
+    <p>
+      Posted by:
+      <% @video.posts.each do |post| %>
+        <%= link_to post.user, post.user %>&nbsp;
+      <% end %>
+    </p>
   </div>
 
 </div>

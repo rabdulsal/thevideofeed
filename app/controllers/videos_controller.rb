@@ -7,6 +7,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find params[:id]
+    @posts = @video.posts :order => 'posts.created_at', :include => :user
   end
 
 end
