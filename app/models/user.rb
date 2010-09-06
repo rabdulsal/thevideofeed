@@ -20,15 +20,15 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /^[a-zA-Z0-9\_]*?$/, :message => "can only contain letters, numbers and underscores"
   validates_format_of :username, :with => /^[a-zA-Z]/, :message => "must begin with a letter"
 
-  def follow(user)
-    Follow.create {|r| r.follower = self; r.following = user}
+  def follow user
+    Follow.create { |r| r.follower = self; r.following = user }
   end
 
-  def unfollow(user)
+  def unfollow user
     Follow.find_by_follower_id_and_following_id(self.id, user.id).destroy rescue nil
   end
 
-  def following?(user)
+  def following? user
     Follow.find_by_follower_id_and_following_id(self.id, user.id).present?
   end
 

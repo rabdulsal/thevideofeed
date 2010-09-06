@@ -12,8 +12,8 @@ class PostTest < ActiveSupport::TestCase
       assert_difference 'Video.count', 1 do
         u1 = User.make
         u2 = User.make
-        p1 = u1.posts.create!(:url => TEST_URL)
-        p2 = u2.posts.create!(:url => TEST_URL)
+        p1 = u1.posts.create!(:url => TEST_URL_1)
+        p2 = u2.posts.create!(:url => TEST_URL_1)
         assert_equal p1.video, p2.video
       end
     end
@@ -23,8 +23,8 @@ class PostTest < ActiveSupport::TestCase
     assert_difference 'Post.count', 1 do
       assert_difference 'Video.count', 1 do
         u = User.make
-        p1 = u.posts.create(:url => TEST_URL)
-        p2 = u.posts.create(:url => TEST_URL)
+        p1 = u.posts.create(:url => TEST_URL_1)
+        p2 = u.posts.create(:url => TEST_URL_1)
         assert !p2.valid?
       end
     end

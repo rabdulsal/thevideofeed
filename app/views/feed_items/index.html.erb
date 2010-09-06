@@ -5,20 +5,12 @@
   <%= render 'posts/form' if user_signed_in? %>
 
   <div id="videos">
-    <% @feed_items.each do |feed_item| %>
-    <div class="video">
-      <p><%=raw feed_item.cached_post['video']['html'] %></p>
-      <p>
-        <%= link_to feed_item.cached_post['video']['to_s'], feed_item.cached_post['video']['to_param'] %>
-        via <%= link_to feed_item.cached_post['user']['to_s'], feed_item.cached_post['user']['to_param'] %>
-      </p>
-    </div>
-    <% end if @feed_items %>
+    <%= render @feed_items %>
   </div>
 
   <div id="results"></div>
-  <%= will_paginate(@feed_items) %>
-  <%= pageless(@feed_items.total_pages, feed_path) %>
+  <%= will_paginate @feed_items %>
+  <%= pageless @feed_items.total_pages, feed_path %>
 
 </div>
 

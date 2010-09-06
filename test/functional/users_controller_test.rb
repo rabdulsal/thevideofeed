@@ -10,9 +10,13 @@ class UsersControllerTest < ActionController::TestCase
 
   test "show with posts" do
     u = User.make
-    u.posts.make
+    Embedly.stubs(:get_attrs).returns TEST_URL_1_ATTRS
+    p1 = u.posts.make(:url => TEST_URL_1)
+    Embedly.stubs(:get_attrs).returns TEST_URL_2_ATTRS
+    p2 = u.posts.make(:url => TEST_URL_2)
     get :show, :id => u.username
     assert_response :success
+    assert_equal [p2, p1], assigns(:posts)
   end
 
   test "show with invalid user" do

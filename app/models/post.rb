@@ -15,16 +15,22 @@ class Post < ActiveRecord::Base
   after_create :create_feed_items
   after_destroy :destroy_feed_items
 
+  def self.get opts={}
+    opts[:page] ||= 1
+    opts.merge! :per_page => Video::MAX_PER_PAGE, :order => 'posts.created_at desc'
+    paginate opts
+  end
+
   def find_or_create_video_by_url
     self.video = Video.find_or_create_by_url(:url => url) if url
   end
 
   def create_feed_items
-    FeedItem.populate(self)
+    FeedItem.populate self
   end
 
   def destroy_feed_items
-    FeedItem.unpopulate(self)
+    FeedItem.unpopulate self
   end
 
   def to_cache

@@ -13,10 +13,11 @@ class FeedItem < ActiveRecord::Base
 
   def self.get opts={}
     opts[:page] ||= 1
-    paginate :page => opts[:page], :per_page => Video::MAX_PER_PAGE, :order => 'feed_items.post_created_at desc'
+    opts.merge! :per_page => Video::MAX_PER_PAGE, :order => 'feed_items.post_created_at desc'
+    paginate opts
   end
 
-  def self.populate(post)
+  def self.populate post
     users = []
     users << post.user # poster's feed
     post.user.followers.find_each do |follower|
@@ -27,8 +28,8 @@ class FeedItem < ActiveRecord::Base
     end
   end
 
-  def self.unpopulate(post)
-    FeedItem.find_all_by_post_id(post.id).each {|f| f.destroy} rescue nil
+  def self.unpopulate post
+    FeedItem.find_all_by_post_id(post.id).each { |f| f.destroy } rescue nil
   end
 
   def self.backfill(follower, following)
@@ -37,11 +38,11 @@ class FeedItem < ActiveRecord::Base
     end
   end
 
-  def self.unbackfill(follower, following)
-    FeedItem.find_all_by_user_id_and_poster_id(follower.id, following.id).each {|f| f.destroy} rescue nil
+  def self.unbackfill follower, following
+    FeedItem.find_all_by_user_id_and_poster_id(follower.id, following.id).each { |f| f.destroy } rescue nil
   end
 
-  def self.insert(user, post)
+  def self.insert user, post
     FeedItem.create do |f|
       f.user_id = user.id
       f.post_created_at = post.created_at

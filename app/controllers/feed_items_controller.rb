@@ -4,7 +4,7 @@ class FeedItemsController < ApplicationController
 
   def index
     @feed_items = current_user.feed_items.get :page => params[:page]
-    render @feed_items.map(&:post).map(&:video) if request.xhr?
+    render @feed_items if request.xhr?
   end
 
 end

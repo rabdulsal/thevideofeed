@@ -2,20 +2,13 @@
 
   <h2>recent videos</h2>
 
-  <%= render 'posts/form' if user_signed_in? %>
-
   <div id="videos">
-    <% @videos.each do |video| %>
-    <div class="video">
-      <p><%=raw video.html %></p>
-      <p><%= link_to video.to_s, video %></p>
-    </div>
-    <% end if @videos %>
+    <%= render @videos %>
   </div>
 
   <div id="results"></div>
-  <%= will_paginate(@videos) %>
-  <%= pageless(@videos.total_pages, videos_path) %>
+  <%= will_paginate @videos %>
+  <%= pageless @videos.total_pages, videos_path %>
 
 </div>
 

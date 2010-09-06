@@ -2,13 +2,19 @@
 
   <h2><%= @user %></h2>
 
-  <p>...</p>
+  <div id="videos">
+    <%= render @posts %>
+  </div>
+
+  <div id="results"></div>
+  <%= will_paginate @posts %>
+  <%= pageless @posts.total_pages, user_path(@user) %>
 
 </div>
 
 <div id="users" class="grid_2">
 
-  <h2>following</h2>
+  <h2>sidebar</h2>
 
   <p>...</p>
 

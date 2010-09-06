@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by_username! params[:id]
+    @posts = @user.posts.get :page => params[:page], :include => :video
+    render @posts if request.xhr?
   end
 
   def new
@@ -20,14 +22,14 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @user = User.find_by_login!(params[:id])
-    current_user.follow(@user)
+    @user = User.find_by_login! params[:id]
+    current_user.follow @user
     redirect_to @user
   end
 
   def unfollow
-    @user = User.find_by_login!(params[:id])
-    current_user.unfollow(@user)
+    @user = User.find_by_login! params[:id]
+    current_user.unfollow @user
     redirect_to @user
   end
 

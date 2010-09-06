@@ -71,8 +71,8 @@ class FeedItemTest < ActiveSupport::TestCase
     follower = User.make
     u1 = User.make
     u2 = User.make
-    p1 = Post.make(:user => u1, :url => TEST_URL)
-    p2 = Post.make(:user => u2, :url => TEST_URL)
+    p1 = Post.make(:user => u1, :url => TEST_URL_1)
+    p2 = Post.make(:user => u2, :url => TEST_URL_1)
     assert_difference 'follower.feed_items.count', 1 do
       follower.follow(u1)
       follower.follow(u2)

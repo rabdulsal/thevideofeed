@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
 
   # attr_accessible not needed, videos are only user-accessible via posts
 
-  MAX_PER_PAGE = 5
+  MAX_PER_PAGE = 3
 
   has_many :posts
 
@@ -13,7 +13,8 @@ class Video < ActiveRecord::Base
 
   def self.get opts={}
     opts[:page] ||= 1
-    paginate :page => opts[:page], :per_page => Video::MAX_PER_PAGE, :order => 'videos.created_at desc'
+    opts.merge! :per_page => Video::MAX_PER_PAGE, :order => 'videos.created_at desc'
+    paginate opts
   end
 
   def set_attrs_via_embedly

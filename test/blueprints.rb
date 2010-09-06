@@ -25,7 +25,7 @@ end
 
 Post.blueprint do
   user { User.make }
-  url { TEST_URL }
+  url { TEST_URL_1 }
 end
 
 User.blueprint do
@@ -36,5 +36,5 @@ User.blueprint do
 end
 
 Video.blueprint do
-  url { "http://www.youtube.com/watch?v=oHg5SJYRHA0" }
+  url { TEST_URL_1 }
 end

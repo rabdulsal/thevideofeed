@@ -10,14 +10,14 @@ class PostsControllerTest < ActionController::TestCase
   test "create" do
     sign_in!
     assert_difference 'Post.count' do
-      post :create, :post => { :url => TEST_URL }
+      post :create, :post => { :url => TEST_URL_1 }
       assert_redirected_to root_path
     end
   end
 
   test "create not logged in" do
     assert_no_difference 'Post.count' do
-      post :create, :post => { :url => TEST_URL }
+      post :create, :post => { :url => TEST_URL_1 }
       assert_redirected_to new_user_session_path
     end
   end

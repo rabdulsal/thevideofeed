@@ -1,13 +1,8 @@
 == todo
 
+videos/show
 allow follow/unfollow
-
 gravatars
-users/show
-improve users/show
-improve videos/show
-improve videos/index
-improve feed_items/index
 
 auto fetch/post videos from user's twitter, facebook, youtube, rss
 create a newathens user and auto fetch/post with rss feed

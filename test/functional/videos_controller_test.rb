@@ -5,9 +5,14 @@ class VideosControllerTest < ActionController::TestCase
   test "index" do
     get :index
     assert_response :success
-    Post.make; Post.make
+    # with posts
+    Embedly.stubs(:get_attrs).returns TEST_URL_1_ATTRS
+    p1 = Post.make(:url => TEST_URL_1)
+    Embedly.stubs(:get_attrs).returns TEST_URL_2_ATTRS
+    p2 = Post.make(:url => TEST_URL_2)
     get :index
     assert_response :success
+    assert_equal [p2.video, p1.video], assigns(:videos)
   end
 
   test "show" do
