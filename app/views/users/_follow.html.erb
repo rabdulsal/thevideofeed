@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+  <% if current_user == @user %>
+    <p>This is you</p>
+  <% elsif current_user.following?(@user) %>
+  <p><%= button_to "unfollow", user_unfollow_path(@user), :remote => true %>
+  <% else %>
+    <p><%= button_to "follow", user_follow_path(@user), :remote => true %>
+  <% end %>
+<% else %>
+  <p>
+    <%= link_to "sign in", new_user_session_path %> or
+    <%= link_to "sign up", new_user_path %> to follow this user
+  </p>
+<% end %>

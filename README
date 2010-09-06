@@ -1,7 +1,5 @@
 == todo
 
-allow follow/unfollow
-
 gravatars
 
 auto fetch/post videos from user's twitter, facebook, youtube, rss
@@ -10,6 +8,7 @@ create a newathens user and auto fetch/post with rss feed
 oath signin/signup via twitter, facebook, gmail
 collect contacts per user, suggest to follow if in system
 allow optional cross-post to twitter/facebook when video posted manually
+allow seeing other user's feeds
 
 comments
 search
@@ -19,6 +18,8 @@ follow notifications (feed? email?)
 auto-update embedly regex
 switch to new heroku postgres
 check that indexes are being used
+indexes for follows table
+resque
 
 repopulate videos user should see in feed_items after user unfollow (former dupes)
 refresh feed_items/post_cache after post/user/video update (e.g. if user changes username)

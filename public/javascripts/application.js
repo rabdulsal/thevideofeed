@@ -1,18 +1,4 @@
-/*!
- * jQuery JavaScript Library v1.4.2
- * http://jquery.com/
- *
- * Copyright 2010, John Resig
- * Dual licensed under the MIT or GPL Version 2 licenses.
- * http://jquery.org/license
- *
- * Includes Sizzle.js
- * http://sizzlejs.com/
- * Copyright 2010, The Dojo Foundation
- * Released under the MIT, BSD, and GPL Licenses.
- *
- * Date: Sat Feb 13 22:33:48 2010 -0500
- */
+// http://jquery.com - v1.4.2
 (function(A,w){function ma(){if(!c.isReady){try{s.documentElement.doScroll("left")}catch(a){setTimeout(ma,1);return}c.ready()}}function Qa(a,b){b.src?c.ajax({url:b.src,async:false,dataType:"script"}):c.globalEval(b.text||b.textContent||b.innerHTML||"");b.parentNode&&b.parentNode.removeChild(b)}function X(a,b,d,f,e,j){var i=a.length;if(typeof b==="object"){for(var o in b)X(a,o,b[o],f,e,d);return a}if(d!==w){f=!j&&f&&c.isFunction(d);for(o=0;o<i;o++)e(a[o],b,f?d.call(a[o],o,e(a[o],b)):d,j);return a}return i?
 e(a[0],b):w}function J(){return(new Date).getTime()}function Y(){return false}function Z(){return true}function na(a,b,d){d[0].type=a;return c.event.handle.apply(b,d)}function oa(a){var b,d=[],f=[],e=arguments,j,i,o,k,n,r;i=c.data(this,"events");if(!(a.liveFired===this||!i||!i.live||a.button&&a.type==="click")){a.liveFired=this;var u=i.live.slice(0);for(k=0;k<u.length;k++){i=u[k];i.origType.replace(O,"")===a.type?f.push(i.selector):u.splice(k--,1)}j=c(a.target).closest(f,a.currentTarget);n=0;for(r=
 j.length;n<r;n++)for(k=0;k<u.length;k++){i=u[k];if(j[n].selector===i.selector){o=j[n].elem;f=null;if(i.preType==="mouseenter"||i.preType==="mouseleave")f=c(a.relatedTarget).closest(i.selector)[0];if(!f||f!==o)d.push({elem:o,handleObj:i})}}n=0;for(r=d.length;n<r;n++){j=d[n];a.currentTarget=j.elem;a.data=j.handleObj.data;a.handleObj=j.handleObj;if(j.handleObj.origHandler.apply(j.elem,e)===false){b=false;break}}return b}}function pa(a,b){return"live."+(a&&a!=="*"?a+".":"")+b.replace(/\./g,"`").replace(/ /g,
@@ -153,35 +139,8 @@ f.top,left:d.left-f.left}},offsetParent:function(){return this.map(function(){fo
 "pageXOffset"]:c.support.boxModel&&j.document.documentElement[d]||j.document.body[d]:e[d]}});c.each(["Height","Width"],function(a,b){var d=b.toLowerCase();c.fn["inner"+b]=function(){return this[0]?c.css(this[0],d,false,"padding"):null};c.fn["outer"+b]=function(f){return this[0]?c.css(this[0],d,false,f?"margin":"border"):null};c.fn[d]=function(f){var e=this[0];if(!e)return f==null?null:this;if(c.isFunction(f))return this.each(function(j){var i=c(this);i[d](f.call(this,j,i[d]()))});return"scrollTo"in
 e&&e.document?e.document.compatMode==="CSS1Compat"&&e.document.documentElement["client"+b]||e.document.body["client"+b]:e.nodeType===9?Math.max(e.documentElement["client"+b],e.body["scroll"+b],e.documentElement["scroll"+b],e.body["offset"+b],e.documentElement["offset"+b]):f===w?c.css(e,d):this.css(d,typeof f==="string"?f:f+"px")}});A.jQuery=A.$=c})(window);
 
-// =======================================================================
-// PageLess - endless page
-//
-// Author: Jean-Sébastien Ney (jeansebastien.ney@gmail.com)
-// Contributors:
-//	Alexander Lang (langalex)
-// 	Lukas Rieder (Overbryd)
-//
-// Parameters:
-//    currentPage: current page (params[:page])
-//    distance: distance to the end of page in px when ajax query is fired
-//    loader: selector of the loader div (ajax activity indicator)
-//    loaderHtml: html code of the div if loader not used
-//    loaderImage: image inside the loader
-//    loaderMsg: displayed ajax message
-//    pagination: selector of the paginator divs. (if javascript is disabled paginator is required)
-//    params: paramaters for the ajax query, you can pass auth_token here
-//    totalPages: total number of pages
-//    url: URL used to request more data
-// Callback Parameters:
-//		scrape: A function to modify the incoming data. (Doesn't do anything by default)
-//		complete: A function to call when a new page has been loaded (optional)
-//		afterStopListener: A function to call when the last page has been loaded (optional)
-//
-// Requires: jquery + jquery dimensions
-//
-// Thanks to:
-//  * codemonky.com/post/34940898
-//  * www.unspace.ca/discover/pageless/
-//  * famspam.com/facebox
-// =======================================================================
+// http://github.com/rails/jquery-ujs - abe2f8c2f4fa53391ed9
+jQuery(function(f){var e=f("meta[name=csrf-token]").attr("content"),g=f("meta[name=csrf-param]").attr("content");f.fn.extend({triggerAndReturn:function(h,j){var i=new f.Event(h);this.trigger(i,j);return i.result!==false},callRemote:function(){var j=this,l=j.attr("method")||j.attr("data-method")||"GET",i=j.attr("action")||j.attr("href"),h=j.attr("data-type")||"script";if(i===undefined){throw"No URL specified for remote call (action or href must be present)."}else{if(j.triggerAndReturn("ajax:before")){var k=j.is("form")?j.serializeArray():[];f.ajax({url:i,data:k,dataType:h,type:l.toUpperCase(),beforeSend:function(m){j.trigger("ajax:loading",m)},success:function(n,m,o){j.trigger("ajax:success",[n,m,o])},complete:function(m){j.trigger("ajax:complete",m)},error:function(o,m,n){j.trigger("ajax:failure",[o,m,n])}})}j.trigger("ajax:after")}}});f("a[data-confirm],input[data-confirm]").live("click",function(){var h=f(this);if(h.triggerAndReturn("confirm")){if(!confirm(h.attr("data-confirm"))){return false}}});f("form[data-remote]").live("submit",function(h){f(this).callRemote();h.preventDefault()});f("a[data-remote],input[data-remote]").live("click",function(h){f(this).callRemote();h.preventDefault()});f("a[data-method]:not([data-remote])").live("click",function(l){var k=f(this),i=k.attr("href"),m=k.attr("data-method"),j=f('<form method="post" action="'+i+'"></form>'),h='<input name="_method" value="'+m+'" type="hidden" />';if(g!=null&&e!=null){h+='<input name="'+g+'" value="'+e+'" type="hidden" />'}j.hide().append(h).appendTo("body");l.preventDefault();j.submit()});var c="input[data-disable-with]";var d="form[data-remote]:has("+c+")";var b="form:not([data-remote]):has("+c+")";var a=function(){f(this).find(c).each(function(){var h=f(this);h.data("enable-with",h.val()).attr("value",h.attr("data-disable-with")).attr("disabled","disabled")})};f(d).live("ajax:before",a);f(b).live("submit",a);f(d).live("ajax:complete",function(){f(this).find(c).each(function(){var h=f(this);h.removeAttr("disabled").val(h.data("enable-with"))})})});
+
+// http://github.com/jney/jquery.pageless - 90213b1168ef23718e7d
 (function(a){a.pageless=function(b){a.isFunction(b)?b.call():a.pageless.init(b)};a.pageless.settings={currentPage:1,pagination:".pagination",url:location.href,params:{},distance:100,loaderImage:"/images/loader-alt.gif",scrape:function(b){return b}};a.pageless.loaderHtml=function(){return a.pageless.settings.loaderHtml||'<div id="pageless-loader" style="display:none;text-align:center;width:100%;">  <div class="msg" style="color:#333;font-size:2em"></div>  <img src="'+a.pageless.settings.loaderImage+'" title="load" alt="loading more results" style="margin: 10px auto; margin-bottom: 30px;" /></div>'};a.pageless.init=function(b){if(a.pageless.settings.inited){return}a.pageless.settings.inited=true;if(b){a.extend(a.pageless.settings,b)}if(a.pageless.settings.pagination){a(a.pageless.settings.pagination).remove()}a.pageless.startListener()};a.pageless.isLoading=false;a.fn.pageless=function(b){a.pageless.init(b);a.pageless.el=a(this);if(b.loader&&a(this).find(b.loader).length){a.pageless.loader=a(this).find(b.loader)}else{a.pageless.loader=a(a.pageless.loaderHtml());a(this).append(a.pageless.loader);if(!b.loaderHtml){a("#pageless-loader .msg").html(b.loaderMsg)}}};a.pageless.loading=function(b){if(b===true){a.pageless.isLoading=true;if(a.pageless.loader){a.pageless.loader.fadeIn("normal")}}else{a.pageless.isLoading=false;if(a.pageless.loader){a.pageless.loader.fadeOut("normal")}}};a.pageless.stopListener=function(){a(window).unbind(".pageless")};a.pageless.startListener=function(){a(window).bind("scroll.pageless",a.pageless.scroll)};a.pageless.scroll=function(){if(a.pageless.settings.totalPages<=a.pageless.settings.currentPage){a.pageless.stopListener();if(a.pageless.settings.afterStopListener){a.pageless.settings.afterStopListener.call()}return}var b=a(document).height()-a(window).scrollTop()-a(window).height();if(!a.pageless.isLoading&&(b<a.pageless.settings.distance)){a.pageless.loading(true);a.pageless.settings.currentPage++;a.extend(a.pageless.settings.params,{page:a.pageless.settings.currentPage});a.get(a.pageless.settings.url,a.pageless.settings.params,function(c){var c=a.pageless.settings.scrape(c);if(a.pageless.loader){a.pageless.loader.before(c)}else{a.pageless.el.append(c)}a.pageless.loading(false);if(a.pageless.settings.complete){a.pageless.settings.complete.call()}})}}})(jQuery);

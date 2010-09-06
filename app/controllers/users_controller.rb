@@ -22,15 +22,14 @@ class UsersController < ApplicationController
   end
 
   def follow
-    @user = User.find_by_login! params[:id]
-    current_user.follow @user
-    redirect_to @user
+    @user = User.find_by_username! params[:user_id]
+    current_user.follow @user unless current_user.following? @user
   end
 
   def unfollow
-    @user = User.find_by_login! params[:id]
-    current_user.unfollow @user
-    redirect_to @user
+    @user = User.find_by_username! params[:user_id]
+    current_user.unfollow @user if current_user.following? @user
+    render 'users/follow'
   end
 
 end

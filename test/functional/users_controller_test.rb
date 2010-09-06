@@ -3,8 +3,16 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
 
   test "show" do
-    u = User.make
-    get :show, :id => u.username
+    u1 = User.make
+    get :show, :id => u1.username
+    assert_response :success
+    # signed in
+    u2 = sign_in!
+    get :show, :id => u1.username
+    assert_response :success
+    # following
+    u2.follow u1
+    get :show, :id => u1.username
     assert_response :success
   end
 
@@ -43,6 +51,27 @@ class UsersControllerTest < ActionController::TestCase
         post :create, :user => {:invalid => 'invalid'}
         assert_template :new
       end
+    end
+  end
+
+  test "follow" do
+    follower = sign_in!
+    followed = User.make
+    assert_difference 'Follow.count' do
+      post :follow, :format => :js, :user_id => followed.username
+      assert_response :success
+      assert follower.following? followed
+    end
+  end
+
+  test "unfollow" do
+    follower = sign_in!
+    followed = User.make
+    follower.follow followed
+    assert_difference 'Follow.count', -1 do
+      post :unfollow, :format => :js, :user_id => followed.username
+      assert_response :success
+      assert !follower.following?(followed)
     end
   end
 

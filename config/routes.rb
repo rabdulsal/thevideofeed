@@ -4,7 +4,9 @@ Thevideofeed::Application.routes.draw do
 
   match 'feed' => 'feed_items#index', :as => :feed
   resources :posts, :only => [:new, :create]
-  resources :users, :only => [:new, :create]
+  resources :users, :only => [:new, :create] do
+    post :follow, :unfollow
+  end
   resources :videos, :only => [:index, :show]
 
   # devise routes
@@ -30,7 +32,5 @@ Thevideofeed::Application.routes.draw do
 
   # /trevor (users never start with a number)
   match ':id' => 'users#show', :as => :user
-  match ':id/follow' => 'users#follow', :via => :post, :as => :user_follow
-  match ':id/unfollow' => 'users#unfollow', :via => :post, :as => :user_unfollow
 
 end
