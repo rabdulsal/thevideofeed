@@ -2,6 +2,14 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
 
+  test "index" do
+    get :index
+    assert_response :success
+    User.make; User.make
+    get :index
+    assert_response :success
+  end
+
   test "show" do
     u1 = User.make
     get :show, :id => u1.username

@@ -4,7 +4,7 @@ Thevideofeed::Application.routes.draw do
 
   match 'feed' => 'feed_items#index', :as => :feed
   resources :posts, :only => [:new, :create]
-  resources :users, :only => [:new, :create] do
+  resources :users, :only => [:index, :new, :create] do
     post :follow, :unfollow
   end
   resources :videos, :only => [:index, :show]

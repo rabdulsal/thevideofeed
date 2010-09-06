@@ -1,6 +1,11 @@
 == todo
 
+tabs (feed, videos/index, users/index)
 gravatars
+
+repopulate videos user should see in feed_items after user unfollow (former dupes)
+refresh feed_items/post_cache after post/user/video update (e.g. if user changes username)
+clean up after post/user/video delete (remove feed_items, repopulate feed_items with former dupes)
 
 auto fetch/post videos from user's twitter, facebook, youtube, rss
 create a newathens user and auto fetch/post with rss feed
@@ -20,10 +25,6 @@ switch to new heroku postgres
 check that indexes are being used
 indexes for follows table
 resque
-
-repopulate videos user should see in feed_items after user unfollow (former dupes)
-refresh feed_items/post_cache after post/user/video update (e.g. if user changes username)
-clean up after post/user/video delete (remove feed_items, repopulate feed_items with former dupes)
 
 == notes
 

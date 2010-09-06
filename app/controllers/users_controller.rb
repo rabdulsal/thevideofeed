@@ -2,6 +2,10 @@ class UsersController < ApplicationController
 
   before_filter :authenticate_user!, :only => [:follow, :unfollow]
 
+  def index
+    @users = User.all(:order => 'users.created_at asc')
+  end
+
   def show
     @user = User.find_by_username! params[:id]
     @posts = @user.posts.get :page => params[:page], :include => :video
