@@ -16,7 +16,7 @@ class FollowTest < ActiveSupport::TestCase
     end
   end
 
-  test "following a user backfills the follower's feed with the followed user's posts, unfollowing removes them" do
+  test "following a user backfills the follower's feed with the followed user's posts" do
     user_being_followed = User.make
     user_doing_the_following = User.make
     Time.stubs(:now).returns Time.local(2009,9,1)
@@ -34,11 +34,6 @@ class FollowTest < ActiveSupport::TestCase
     end
     user_doing_the_following.reload
     assert_equal [p.id], user_doing_the_following.feed_items.map(&:post_id)
-    assert_difference 'FeedItem.count', -1 do
-      user_doing_the_following.unfollow(user_being_followed)
-    end
-    user_doing_the_following.reload
-    assert_equal [], user_doing_the_following.feed_items
   end
 
 end

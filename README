@@ -18,10 +18,12 @@ follow notifications (feed? email?)
 auto-update embedly regex
 switch to new heroku postgres
 check that indexes are being used
-indexes for follows table
 resque
 
-if allowing user/post/video update/destroy (and/or feed_items cleaning)
-- repopulate videos user should see in feed_items after user unfollow (former dupes)
-- refresh feed_items/post_cache after post/user/video update (e.g. if user changes username)
-- clean up after post/user/video delete (remove feed_items, repopulate feed_items with former dupes)
+== if/then
+
+if allow user update username, re-cache feed_items post_cache
+if allow user destroy... only mark as deleted and remove users/show?
+if allow post destroy, clean feed_items for user and followers, repopulate with posts that were former dupes
+ - same option for users/unfollow (add feed_items for posts removed that user should see now)
+if allow video update, re-cache feed_items post_cache

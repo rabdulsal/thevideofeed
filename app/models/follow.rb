@@ -11,7 +11,6 @@ class Follow < ActiveRecord::Base
   validate :cannot_follow_self
 
   after_create :backfill_posts
-  after_destroy :unbackfill_posts
 
   def cannot_follow_self
     errors.add(:following_id) if follower == following
@@ -19,10 +18,6 @@ class Follow < ActiveRecord::Base
 
   def backfill_posts
     FeedItem.backfill(follower, following)
-  end
-
-  def unbackfill_posts
-    FeedItem.unbackfill(follower, following)
   end
 
 end

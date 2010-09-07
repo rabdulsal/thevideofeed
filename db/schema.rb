@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100904215031) do
+ActiveRecord::Schema.define(:version => 20100907171042) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,9 @@ ActiveRecord::Schema.define(:version => 20100904215031) do
     t.integer  "following_id"
     t.datetime "created_at"
   end
+
+  add_index "follows", ["follower_id", "created_at"], :name => "index_follows_on_follower_id_and_created_at"
+  add_index "follows", ["following_id", "created_at"], :name => "index_follows_on_following_id_and_created_at"
 
   create_table "posts", :force => true do |t|
     t.integer  "user_id"

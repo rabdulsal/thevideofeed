@@ -13,7 +13,6 @@ class Post < ActiveRecord::Base
   validates_uniqueness_of :video_id, :scope => :user_id
 
   after_create :create_feed_items
-  after_destroy :destroy_feed_items
 
   def self.get opts={}
     opts[:page] ||= 1
@@ -27,10 +26,6 @@ class Post < ActiveRecord::Base
 
   def create_feed_items
     FeedItem.populate self
-  end
-
-  def destroy_feed_items
-    FeedItem.unpopulate self
   end
 
   def to_cache

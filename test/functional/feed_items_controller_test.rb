@@ -27,9 +27,6 @@ class FeedItemsControllerTest < ActionController::TestCase
     get :index
     assert !assigns(:feed_items).blank?
     assert_equal [p2, p1], assigns(:feed_items).map(&:post)
-    u1.unfollow(u2)
-    get :index
-    assert assigns(:feed_items).blank?
   end
 
 end
