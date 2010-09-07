@@ -2,11 +2,10 @@ Thevideofeed::Application.routes.draw do
 
   root :to => 'home#index'
 
-  match 'feed' => 'feed_items#index', :as => :feed
-
   resources :posts, :only => [:new, :create]
 
   resources :users, :only => [:index, :new, :create] do
+    get :feed
     post :follow, :unfollow
   end
 

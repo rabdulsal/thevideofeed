@@ -1,7 +1,7 @@
 <div class="video">
   <p><%=raw feed_item.cached_post['video']['html'] %></p>
   <p>
-    <%= link_to feed_item.cached_post['video']['to_s'], feed_item.cached_post['video']['to_param'] %>
-    via <%= link_to feed_item.cached_post['user']['to_s'], feed_item.cached_post['user']['to_param'] %>
+    <%= link_to feed_item.cached_post['video']['to_s'], '/'+feed_item.cached_post['video']['to_param'] %>
+    via <%= link_to feed_item.cached_post['user']['to_s'], '/'+feed_item.cached_post['user']['to_param'] %>
   </p>
 </div>

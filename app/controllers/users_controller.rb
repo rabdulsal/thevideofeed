@@ -25,6 +25,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def feed
+    @user = User.find_by_username! params[:user_id]
+    @feed_items = @user.feed_items.get :page => params[:page]
+    render @feed_items if request.xhr?
+  end
+
   def follow
     @user = User.find_by_username! params[:user_id]
     current_user.follow @user unless current_user.following? @user

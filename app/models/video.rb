@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
 
   # attr_accessible not needed, videos are only user-accessible via posts
 
-  MAX_PER_PAGE = 5
+  MAX_PER_PAGE = 3
 
   has_many :posts
 
