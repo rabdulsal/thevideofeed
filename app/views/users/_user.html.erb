@@ -6,5 +6,5 @@
     <%= user.followers_count %> followers,
     <%= user.followings_count %> followings
   </p>
-  <p><%= render 'users/follow', :user => user %></p>
+  <p><%= render 'users/follow', :user => user if user_signed_in? %></p>
 </div>

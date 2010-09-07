@@ -14,7 +14,7 @@
 
 <div class="grid_3">
 
-  <p><%= render 'users/follow', :user => @user %></p>
+  <p><%= render 'users/follow', :user => @user if user_signed_in? %></p>
 
   <p><%= link_to "view #{@user}'s feed", user_feed_path(@user) %></p>
 
