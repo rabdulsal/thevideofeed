@@ -6,7 +6,7 @@
     <%= render @posts %>
   </div>
 
-  <div id="results"></div>
+  <div id="pageless"></div>
   <%= will_paginate @posts %>
   <%= pageless @posts.total_pages, user_path(@user) %>
 
