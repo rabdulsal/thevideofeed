@@ -1,5 +1,6 @@
 == todo
 
+fix funny or die (according to support response)
 auto fetch/post videos from user's twitter, facebook, youtube, rss (using superfeedr?)
 create a newathens user and auto fetch/post with rss feed (superfeedr?)
 
