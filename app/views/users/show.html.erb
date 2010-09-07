@@ -14,10 +14,8 @@
 
 <div class="grid_3">
 
-  <div id="follow">
-    <%= render 'users/follow', :user => @user %>
-  </div>
-  
+  <p><%= render 'users/follow', :user => @user %></p>
+
   <p><%= link_to "view #{@user}'s feed", user_feed_path(@user) %></p>
 
 </div>

@@ -1,3 +1,10 @@
 <div class="user">
-  <p><%= link_to user.to_s, user %></p>
+  <p>
+    <%= link_to user.to_s, user %>
+    (<%= user.name %>) &nbsp; 
+    <%= user.posts_count %> posts,
+    <%= user.followers_count %> followers,
+    <%= user.followings_count %> followings
+  </p>
+  <p><%= render 'users/follow', :user => user %></p>
 </div>
