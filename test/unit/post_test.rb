@@ -18,8 +18,10 @@ class PostTest < ActiveSupport::TestCase
     Embedly.expects(:get_attrs).times(1).returns TEST_URL_1_ATTRS
     assert_difference 'Post.count' do
       assert_difference 'u.posts_count' do
-        u.posts.create!(:url => TEST_URL_1)
+        p = u.posts.create!(:url => TEST_URL_1)
         u.reload
+        v = p.video.reload
+        assert_equal 1, v.posts_count
       end
     end
   end

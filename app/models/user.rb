@@ -25,7 +25,8 @@ class User < ActiveRecord::Base
   end
 
   def unfollow user
-    Follow.find_by_follower_id_and_following_id(self.id, user.id).destroy rescue nil
+    follow = Follow.find_by_follower_id_and_following_id(self.id, user.id)
+    follow.destroy if follow.present?
   end
 
   def following? user

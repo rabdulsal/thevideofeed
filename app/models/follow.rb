@@ -7,7 +7,7 @@ class Follow < ActiveRecord::Base
 
   validates_presence_of :follower_id
   validates_presence_of :following_id
-  validates_uniqueness_of :following_id, :scope => :follower_id
+  validates_uniqueness_of :follower_id, :scope => :following_id
   validate :cannot_follow_self
 
   after_create :backfill_posts

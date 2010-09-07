@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   attr_accessible :url
 
   belongs_to :user, :counter_cache => :posts_count
-  belongs_to :video
+  belongs_to :video, :counter_cache => :posts_count
 
   before_validation :find_or_create_video_by_url, :on => :create
 
@@ -29,11 +29,13 @@ class Post < ActiveRecord::Base
   end
 
   def to_cache
-    to_json :include => {
+    to_json :only => [], :include => {
       :user => {:only => [:email, :name, :username],
-        :methods => [:to_s, :to_param]},
-      :video => {:except => [:version, :cache_age],
-         :methods => [:to_s, :to_param]}
+        :methods => [:to_s, :to_param]
+        },
+      :video => {:only => [:title, :thumbnail_url, :thumbnail_width, :thumbnail_height, :html, :url],
+        :methods => [:to_s, :to_param]
+        }
       }
   end
 

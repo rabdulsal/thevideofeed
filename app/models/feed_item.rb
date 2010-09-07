@@ -24,13 +24,13 @@ class FeedItem < ActiveRecord::Base
       users << follower # poster's followers' feed
     end if post.user.followers.present?
     users.each do |user|
-      FeedItem.insert(user, post)
+      FeedItem.insert user, post
     end
   end
 
   def self.backfill(follower, following)
     following.posts.find_each do |post|
-      FeedItem.insert(follower, post)
+      FeedItem.insert follower, post
     end
   end
 

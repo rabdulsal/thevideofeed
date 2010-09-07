@@ -2,8 +2,8 @@
 
 gravatars
 
-auto fetch/post videos from user's twitter, facebook, youtube, rss
-create a newathens user and auto fetch/post with rss feed
+auto fetch/post videos from user's twitter, facebook, youtube, rss (using superfeedr?)
+create a newathens user and auto fetch/post with rss feed (superfeedr?)
 
 oath signin/signup via twitter, facebook, gmail
 collect contacts per user, suggest to follow if in system
@@ -12,18 +12,19 @@ allow seeing other user's feeds
 
 comments
 search
-rss feeds
-follow notifications (feed? email?)
+feeds
+follow notifications
 
 auto-update embedly regex
 switch to new heroku postgres
-check that indexes are being used
-resque
+check that indexes are being used (also check new relic)
+resque for background jobs
 
-== if/then
+== if/when/then
 
-if allow user update username, re-cache feed_items post_cache
-if allow user destroy... only mark as deleted and remove users/show?
-if allow post destroy, clean feed_items for user and followers, repopulate with posts that were former dupes
- - same option for users/unfollow (add feed_items for posts removed that user should see now)
-if allow video update, re-cache feed_items post_cache
+when user is unfollowed, feed_items are not cleaned/repopulated
+
+if allow user/video/post update, re-cache feed_items post_cache
+if allow user destroy, mark user deleted and 404 for users/show
+if allow video destroy, clean posts/feed_items (mark video as destroyed?)
+if allow post destroy, clean feed_items, repopulate feed_items in case of dupes
