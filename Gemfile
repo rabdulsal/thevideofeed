@@ -3,6 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.0'
 gem 'devise', '1.1.2'
 
+gem 'aws', '2.3.20'
 gem 'hoptoad_notifier', '2.3.6'
 gem 'toadhopper', '1.0.4'
 

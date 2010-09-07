@@ -6,11 +6,24 @@ require 'rake'
 
 Thevideofeed::Application.load_tasks
 
+task :cron => :environment do
+  Rake::Task['heroku:backup'].invoke
+end
+
+namespace :test do
+  desc "Runs remote tests"
+  task :remote => :environment do
+    Dir.glob('test/remote/*.rb').each do |file|
+      ruby file
+    end
+  end
+end
+
 namespace :heroku do
   desc "PostgreSQL database backups from Heroku to Amazon S3"
   task :backup => :environment do
     begin
-      require 'right_aws'
+      require 'aws'
       puts "[#{Time.now}] heroku:backup started"
       name = "#{ENV['APP_NAME']}-#{Time.now.strftime('%Y-%m-%d-%H%M%S')}.dump"
       db = ENV['DATABASE_URL'].match(/postgres:\/\/([^:]+):([^@]+)@([^\/]+)\/(.+)/)
@@ -23,29 +36,6 @@ namespace :heroku do
     rescue Exception => e
       require 'toadhopper'
       Toadhopper(ENV['hoptoad_key']).post!(e)
-    end
-  end
-end
-
-task :cron => :environment do
-  # Rake::Task['heroku:backup'].invoke
-end
-
-namespace :heroku do
-  desc "Reads config/config.yml and sending production configuration variables to Heroku"
-  task :config do
-    CONFIG = YAML.load_file('config/config.yml')['production'] rescue {}
-    command = "heroku config:add"
-    CONFIG.each {|key, val| command << " #{key}=#{val} " if val }
-    system command
-  end
-end
-
-namespace :test do
-  desc "Runs remote tests"
-  task :remote => :environment do
-    Dir.glob('test/remote/*.rb').each do |file|
-      ruby file
     end
   end
 end
