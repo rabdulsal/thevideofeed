@@ -4,8 +4,8 @@ auto fetch/post videos from user's twitter, facebook, youtube, rss (using superf
 create a newathens user and auto fetch/post with rss feed (superfeedr?)
 
 oath signin/signup via twitter, facebook, gmail
-avatar via gravatar, twitter, facebook, etc or custom
 collect contacts per user, suggest to follow if in system
+allow avatar via gravatar, twitter, facebook, etc or custom
 allow optional cross-post to twitter/facebook when video posted manually
 
 comments
