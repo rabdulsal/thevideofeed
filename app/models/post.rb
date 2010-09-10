@@ -33,8 +33,8 @@ class Post < ActiveRecord::Base
       :user => {:only => [:email, :name, :username],
         :methods => [:to_s, :to_param]
         },
-      :video => {:only => [:title, :thumbnail_url, :thumbnail_width, :thumbnail_height, :html, :url],
-        :methods => [:to_s, :to_param]
+      :video => {:only => [:url],
+        :methods => [:to_s, :to_param, :embedly]
         }
       }
   end

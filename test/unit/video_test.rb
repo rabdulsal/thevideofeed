@@ -14,7 +14,7 @@ class VideoTest < ActiveSupport::TestCase
 
   test "to_s" do
     v = Video.make
-    assert_equal v.title, v.to_s
+    assert_equal v.embedly['title'], v.to_s
   end
 
 end

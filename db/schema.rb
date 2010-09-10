@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907184531) do
+ActiveRecord::Schema.define(:version => 20100910033948) do
 
   create_table "feed_items", :force => true do |t|
     t.integer  "user_id"
@@ -75,26 +75,10 @@ ActiveRecord::Schema.define(:version => 20100907184531) do
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "videos", :force => true do |t|
-    t.string   "version"
-    t.string   "title"
-    t.string   "author_name"
-    t.string   "author_url"
-    t.string   "provider_name"
-    t.string   "provider_url"
-    t.integer  "cache_age"
-    t.string   "thumbnail_url"
-    t.integer  "thumbnail_width"
-    t.integer  "thumbnail_height"
-    t.text     "description"
-    t.integer  "height"
-    t.integer  "width"
-    t.text     "html"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "url"
-    t.integer  "posts_count",      :default => 0
+    t.datetime "created_at"
+    t.text     "embedly_attrs"
+    t.integer  "posts_count",   :default => 0
   end
-
-  add_index "videos", ["created_at"], :name => "index_videos_on_created_at"
 
 end

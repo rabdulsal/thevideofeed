@@ -6,9 +6,9 @@ class Video < ActiveRecord::Base
 
   has_many :posts
 
-  before_validation :set_attrs_via_embedly, :on => :create
+  before_validation :set_embedly_attrs, :on => :create
 
-  validates_presence_of :url, :html, :title
+  validates_presence_of :url, :embedly_attrs
   validates_uniqueness_of :url
 
   def self.get opts={}
@@ -17,17 +17,23 @@ class Video < ActiveRecord::Base
     paginate opts
   end
 
-  def set_attrs_via_embedly
+  def set_embedly_attrs
     errors[:base] << "is not valid" unless Embedly.valid_url?(url)
     attrs = Embedly.get_attrs url
     errors[:base] << "is not a video" unless attrs['type'] == 'video'
     attrs['title'] ||= 'untitled'
     attrs['url'] ||= url
-    self.attributes = attrs
+    attrs['html'] = Embedly.clean_html_for attrs['provider_name'], attrs['html']
+    self.url = attrs['url']
+    self.embedly_attrs = attrs.to_json
+  end
+
+  def embedly
+    JSON.parse embedly_attrs
   end
 
   def to_s
-    title
+    embedly['title']
   end
 
   def to_param

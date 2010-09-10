@@ -3,7 +3,7 @@
   <h2><%= @video %></h2>
 
   <div class="video">
-    <p><%=raw @video.html %></p>
+    <p><%=raw @video.embedly['html'] %></p>
     <p>
       Posted by:
       <% @video.posts.each do |post| %>
