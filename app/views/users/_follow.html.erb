@@ -1,9 +1,0 @@
-<div id="<%= "follow-#{user.id}" %>">
-  <% if current_user == user %>
-    <%= button_to "this is you", user %>
-  <% elsif current_user.following?(user) %>
-    <%= button_to "unfollow", user_unfollow_path(user), :remote => true %>
-  <% else %>
-    <%= button_to "follow", user_follow_path(user), :remote => true %>
-  <% end %>
-</div>
