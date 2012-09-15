@@ -1,3 +1,3 @@
 Thevideofeed::Application.routes.draw do
-  root :to => 'home#index'
+  root :to => 'videos#index'
 end
