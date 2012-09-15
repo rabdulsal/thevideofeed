@@ -1,0 +1,10 @@
+#!/bin/sh
+
+rm -rf log/*
+rm -rf tmp/*
+
+gem list -i bundler || gem install bundler && rbenv rehash
+bundle install && rbenv rehash
+
+rake db:create:all db:drop:all db:setup db:fixtures:load rake db:test:prepare
+touch tmp/restart.txt
