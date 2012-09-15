@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails'
 gem 'jquery-rails'
 
+gem 'youtube_it'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

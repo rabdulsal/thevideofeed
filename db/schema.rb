@@ -11,12 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120915203601) do
+ActiveRecord::Schema.define(:version => 20120915212949) do
 
   create_table "videos", :force => true do |t|
     t.string   "key"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "videos", ["key"], :name => "index_videos_on_key"
 
 end
