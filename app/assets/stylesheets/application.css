@@ -21,6 +21,6 @@ h1 {
   margin-top: 0;
 }
 
-a:visited {
+a, a:active, a:hover, a:visited {
   color: black;
 }
