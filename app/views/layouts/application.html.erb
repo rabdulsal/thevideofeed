@@ -9,7 +9,11 @@
   <body>
     <header>
       <%= image_tag('logo.png') %>
-      <h1>The Video Feed</h1>
+      <h1><%= link_to 'The Video Feed', root_path %></h1>
+
+      <% Person.all.each do |person| %>
+        <%= link_to person.username, "/#{person.username}" %>
+      <% end %>
     </header>
 
     <article>
