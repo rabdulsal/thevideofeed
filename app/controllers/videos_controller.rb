@@ -1,5 +1,5 @@
 class VideosController < ApplicationController
   def index
-    @videos = Video.limit(10)
+    @videos = Video.page(params[:page]).per_page(3)
   end
 end

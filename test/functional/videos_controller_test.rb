@@ -5,4 +5,9 @@ class VideosControllerTest < ActionController::TestCase
     get :index
     assert_response :ok
   end
+
+  test 'index js' do
+    get :index, format: :js
+    assert_response :ok
+  end
 end

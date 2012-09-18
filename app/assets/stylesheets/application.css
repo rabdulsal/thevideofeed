@@ -2,3 +2,7 @@
  *= require_self
  *= require_tree .
 */
+
+body {
+  text-align: center;
+}

@@ -1,10 +1,17 @@
 require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
-  test 'show' do
-    person = Person.create! { |p| p.username = 'test' }
+  setup do
+    @person = Person.create! { |p| p.username = 'test' }
+  end
 
-    get :show, username: person.username
+  test 'show' do
+    get :show, username: @person.username
+    assert_response :ok
+  end
+
+  test 'show js' do
+    get :show, format: :js, username: @person.username
     assert_response :ok
   end
 end

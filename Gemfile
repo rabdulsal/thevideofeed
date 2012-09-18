@@ -4,6 +4,7 @@ gem 'rails'
 gem 'jquery-rails'
 
 gem 'youtube_it'
+gem 'will_paginate'
 
 group :assets do
   gem 'sass-rails'

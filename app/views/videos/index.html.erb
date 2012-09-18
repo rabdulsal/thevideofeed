@@ -1,3 +1,5 @@
-<% @videos.each do |video| %>
-  <%= render video %>
-<% end %>
+<div id="videos">
+  <%= render @videos %>
+</div>
+
+<%= will_paginate @videos %>
