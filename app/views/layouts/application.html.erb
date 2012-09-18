@@ -7,7 +7,13 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <h1>The Video Feed</h1>
-    <%= yield %>
+    <header>
+      <%= image_tag('logo.png') %>
+      <h1>The Video Feed</h1>
+    </header>
+
+    <article>
+      <%= yield %>
+    </article>
   </body>
 </html>
