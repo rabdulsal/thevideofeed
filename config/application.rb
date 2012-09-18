@@ -14,7 +14,7 @@ module Thevideofeed
     config.active_record.whitelist_attributes = true
     config.assets.enabled = true
     config.assets.version = '1.0'
-
+    config.autoload_paths << config.root.join('lib')
     config.session_store :cookie_store, key: '_thevideofeed_session'
     config.secret_token = ENV['SECRET_TOKEN'] || SecureRandom.hex
   end

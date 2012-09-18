@@ -1,4 +1,4 @@
-class VideoPoster
+class VideoTweeter
   class << self
     def perform
       true
