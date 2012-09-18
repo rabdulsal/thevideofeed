@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   validates_presence_of   :video_id, :person_id
   validates_uniqueness_of :video_id, scope: :person_id
 
-  has_one :video
+  belongs_to :video
 
   after_destroy :destroy_video_if_all_posts_have_been_destroyed
 
