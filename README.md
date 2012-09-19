@@ -13,6 +13,7 @@
     trevorturk
     iamdavekiss
     Maxami11ion
+    agrandel
 
 ## MIT License
 
