@@ -1,0 +1,12 @@
+<%= form_for(@subscriber) do |f| %>
+ 
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit "Sign Up" %>
+  </div>
+  
+<% end %>
