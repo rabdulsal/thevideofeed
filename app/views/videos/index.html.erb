@@ -1,7 +1,5 @@
 <div id="videos">
-  <% @videos.each do |video| %>
-    <p><%= embed(video) %></p>
-  <% end %>
+  <%= render @videos %>
 </div>
 
 <%= will_paginate @videos %>
