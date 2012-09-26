@@ -24,3 +24,14 @@ h1 {
 a, a:active, a:hover, a:visited {
   color: black;
 }
+
+div#subscribers {
+  margin: 20px 0;
+  padding: 10px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+div#people p {
+  margin: 0;
+}

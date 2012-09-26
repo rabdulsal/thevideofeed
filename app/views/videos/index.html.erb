@@ -1,13 +1,7 @@
-<div id="signup">
-	<%= render 'subscribers/form' %>
-</div>
-
-<% if flash[:notice] %>
-  <p class="message"><%= flash[:notice] %></p>
-<% end %>
-
 <div id="videos">
-  <%= render @videos %>
+  <% @videos.each do |video| %>
+    <p><%= embed(video) %></p>
+  <% end %>
 </div>
 
 <%= will_paginate @videos %>

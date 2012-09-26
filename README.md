@@ -8,15 +8,6 @@
     rake
     rails server
 
-## People
-
-    trevorturk
-    iamdavekiss
-    Maxami11ion
-    agrandel
-    DrBold220
-    asianmack
-
 ## MIT License
 
 Copyright (C) 2012 Trevor Turk, Max Mearsheimer, Jeff Stahler, Dave Kiss
