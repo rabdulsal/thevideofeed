@@ -12,7 +12,7 @@
       <h1><%= link_to 'The Video Feed', root_path %></h1>
 
       <div id="subscribers">
-        <%= form_for(@subscriber) do |f| %>
+        <%= form_for(Subscriber.new) do |f| %>
           <p>Get an email at 5pm if new videos are added:</p>
           <p><%= f.email_field :email, placeholder: 'you@example.com' %></p>
           <p><%= f.submit "Sign up" %></p>
