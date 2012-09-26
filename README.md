@@ -14,6 +14,8 @@
     iamdavekiss
     Maxami11ion
     agrandel
+    DrBold220
+    asianmack
 
 ## MIT License
 
