@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'youtube_it'
 gem 'will_paginate'
 
+gem 'validate_as_email'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

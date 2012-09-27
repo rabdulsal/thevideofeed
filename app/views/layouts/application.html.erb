@@ -20,16 +20,16 @@
       </div>
 
       <div id="subscribers">
-        <%= form_for(Subscriber.new) do |f| %>
-          <p>Sign up to get an email at 5pm if new videos are added:</p>
-          <p>
-            <%= f.email_field :email, placeholder: 'you@example.com' %>
-            <%= f.submit "Sign up" %>
-          </p>
-        <% end %>
-
         <% if flash[:notice] %>
           <p><%= flash[:notice] %></p>
+        <% else %>
+          <%= form_for(Subscriber.new) do |f| %>
+            <p>Sign up to get an email at 5pm if new videos are added:</p>
+            <p>
+              <%= f.email_field :email, placeholder: 'you@example.com' %>
+              <%= f.submit "Sign up" %>
+            </p>
+          <% end %>
         <% end %>
       </div>
     </header>
