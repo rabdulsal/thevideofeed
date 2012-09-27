@@ -11,23 +11,25 @@
       <%= image_tag('logo.png') %>
       <h1><%= link_to 'The Video Feed', root_path %></h1>
 
+      <p>YouTube videos that have been favorited by:</p>
+
+      <div id="people">
+        <% Person.all.each do |person| %>
+          <p><%= link_to person.username, "/#{person.username}" %></p>
+        <% end %>
+      </div>
+
       <div id="subscribers">
         <%= form_for(Subscriber.new) do |f| %>
-          <p>Get an email at 5pm if new videos are added:</p>
-          <p><%= f.email_field :email, placeholder: 'you@example.com' %></p>
-          <p><%= f.submit "Sign up" %></p>
+          <p>Sign up to get an email at 5pm if new videos are added:</p>
+          <p>
+            <%= f.email_field :email, placeholder: 'you@example.com' %>
+            <%= f.submit "Sign up" %>
+          </p>
         <% end %>
 
         <% if flash[:notice] %>
           <p><%= flash[:notice] %></p>
-        <% end %>
-      </div>
-
-      <div id="people">
-        <p>Videos favorited by:</p>
-
-        <% Person.all.each do |person| %>
-          <p><%= link_to person.username, "/#{person.username}" %></p>
         <% end %>
       </div>
     </header>
