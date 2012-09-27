@@ -1,6 +1,2 @@
 Person.create! username: 'trevorturk'
 Person.create! username: 'Maxami11ion'
-Person.create! username: 'agrandel'
-Person.create! username: 'DrBold220'
-Person.create! username: 'iamdavekiss'
-Person.create! username: 'asianmack'
