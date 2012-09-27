@@ -30,6 +30,10 @@ h1 {
 	margin-bottom: 40px;
 }
 
+h2 {
+  margin-bottom: 30px;
+}
+
 a, a:active, a:hover, a:visited {
   color: #9cf;
 	text-decoration: none;
