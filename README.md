@@ -6,6 +6,7 @@
 
     script/setup
     rake
+    rake video_poster
     rails server
 
 ## MIT License
