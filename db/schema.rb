@@ -11,38 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120918162718) do
+ActiveRecord::Schema.define(:version => 20120927011412) do
 
   create_table "people", :force => true do |t|
     t.string   "username"
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
-
-  add_index "people", ["username"], :name => "index_people_on_username"
 
   create_table "posts", :force => true do |t|
     t.integer  "video_id"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
-
-  add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
-  add_index "posts", ["video_id"], :name => "index_posts_on_video_id"
 
   create_table "subscribers", :force => true do |t|
     t.string   "email"
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "videos", :force => true do |t|
     t.string   "key"
     t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
-
-  add_index "videos", ["key"], :name => "index_videos_on_key"
 
 end
