@@ -1,8 +1,7 @@
 class Video < ActiveRecord::Base
-  attr_accessible :key
+  attr_accessible :key, :created_at
 
-  validates_presence_of   :key
-  validates_uniqueness_of :key
+  validates :key, presence: true, uniqueness: true
 
   has_many :people, through: :posts
 end
