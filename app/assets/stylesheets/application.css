@@ -21,6 +21,8 @@ header {
 	color: #fff;
 }
 
+header a.logo { border-bottom: 0; }
+
 article {
   padding-top: 10px;
 	margin-left: 300px;
