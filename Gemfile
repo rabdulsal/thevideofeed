@@ -1,24 +1,19 @@
 source 'https://rubygems.org'
 
-gem 'thin'
-
 gem 'rails'
-gem 'jquery-rails'
-
-gem 'youtube_it'
+gem 'thin'
+gem 'validate_as_email'
 gem 'will_paginate'
 
-gem 'validate_as_email'
-
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
 group :development do
-  gem 'sqlite3'
   gem 'heroku'
+  gem 'sqlite3'
 end
 
 group :production do

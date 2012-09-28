@@ -1,17 +1,40 @@
+require 'net/http'
+
 class VideoPoster
   class << self
     def perform
-      Person.all.each { |person| get(person) }
+      Person.all.each do |person|
+        post_new_favorites_for(person)
+      end
     end
 
-    def get(person)
-      begin
-        page ||= 0
-        results = YouTubeIt::Client.new.videos_by(:favorites, user: person.username, page: page += 1)
-        results.videos.each do |video|
-          person.posts.create(key: video.unique_id, created_at: video.published_at)
+    # Post videos favorited since the last run using the YouTube API v2.0
+    # https://developers.google.com/youtube/2.0/developers_guide_protocol
+    def post_new_favorites_for(person)
+      limit  = 50
+      offset = 1
+      latest = person.posts.first.try(:created_at)
+
+      catch(:break) do
+        loop do
+          uri      = URI.parse("http://gdata.youtube.com/feeds/api/users/#{person.username}/favorites?v=2&max-results=#{limit}&start-index=#{offset}")
+          response = Net::HTTP.get_response(uri).body
+          results  = Hash.from_xml(response)['feed']['entry']
+
+          throw(:break) if results.nil?
+
+          results.each do |result|
+            key = result['group']['videoid']
+            created_at = result['published']
+
+            throw(:break) if (latest && latest >= created_at)
+
+            person.posts.create(key: key, created_at: created_at)
+          end
+
+          offset = offset + limit
         end
-      end while results.next_page.present?
+      end
     end
   end
 end
