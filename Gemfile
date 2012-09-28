@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'jquery-rails'
 gem 'rails'
 gem 'thin'
 gem 'validate_as_email'

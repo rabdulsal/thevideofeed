@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class SubscriberTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "requires a valid email" do
+    pending
+  end
 end

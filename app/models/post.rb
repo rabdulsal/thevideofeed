@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   end
 
   def set_video_created_at
-    unless video.created_at <= created_at
+    if video.new_record?
       video.update_attributes! created_at: created_at
     end
   end
