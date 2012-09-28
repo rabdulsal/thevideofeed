@@ -1,19 +1,19 @@
 require 'net/http'
 
-class VideoPoster
+class VideoUpdater
   class << self
     def perform
       Person.all.each do |person|
-        post_new_favorites_for(person)
+       update_favorites_for(person)
       end
     end
 
-    # Post videos favorited since the last run using the YouTube API v2.0
+    # Add favorites/videos since the last run using the YouTube API v2.0
     # https://developers.google.com/youtube/2.0/developers_guide_protocol
-    def post_new_favorites_for(person)
+    def update_favorites_for(person)
       limit  = 50
       offset = 1
-      latest = person.posts.first.try(:created_at)
+      latest = person.favorites.first.try(:created_at)
 
       catch(:break) do
         loop do
@@ -29,7 +29,7 @@ class VideoPoster
 
             throw(:break) if (latest && latest >= created_at)
 
-            person.posts.create(key: key, created_at: created_at)
+            person.favorites.create(key: key, created_at: created_at)
           end
 
           offset = offset + limit

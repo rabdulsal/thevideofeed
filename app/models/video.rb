@@ -3,5 +3,5 @@ class Video < ActiveRecord::Base
 
   validates :key, presence: true, uniqueness: true
 
-  has_many :people, through: :posts
+  has_many :people, through: :favorites
 end

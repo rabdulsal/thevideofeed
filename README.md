@@ -6,7 +6,7 @@
 
     script/setup
     rake
-    rake video_poster
+    rake video_updater
     rails server
 
 ## MIT License

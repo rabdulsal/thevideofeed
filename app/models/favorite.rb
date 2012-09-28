@@ -1,4 +1,4 @@
-class Post < ActiveRecord::Base
+class Favorite < ActiveRecord::Base
   attr_accessor :key
   attr_accessible :key, :created_at
 

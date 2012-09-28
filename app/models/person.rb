@@ -3,6 +3,6 @@ class Person < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
 
-  has_many :posts
-  has_many :videos, through: :posts
+  has_many :favorites
+  has_many :videos, through: :favorites
 end
