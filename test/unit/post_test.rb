@@ -17,7 +17,7 @@ class PostTest < ActiveSupport::TestCase
     pending
   end
 
-  test "sets the video's created_at to the same as the post on create" do
+  test "sets the video's created_at to the same as the post's on create" do
     pending
   end
 

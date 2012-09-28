@@ -14,8 +14,9 @@ class Post < ActiveRecord::Base
     self.video = Video.find_or_create_by_key(key)
   end
 
+  # FIXME
   def set_video_created_at
-    if video.new_record?
+    unless video.created_at <= created_at
       video.update_attributes! created_at: created_at
     end
   end
