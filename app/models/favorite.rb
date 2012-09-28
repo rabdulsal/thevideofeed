@@ -7,17 +7,13 @@ class Favorite < ActiveRecord::Base
 
   belongs_to :video
 
-  before_validation :set_video, on: :create
-  before_validation :set_video_created_at, on: :create
+  before_validation :find_or_create_video, on: :create
 
-  def set_video
-    self.video = Video.find_or_create_by_key(key)
-  end
-
-  # FIXME
-  def set_video_created_at
-    unless video.created_at <= created_at
-      video.update_attributes! created_at: created_at
+  def find_or_create_video
+    if video = Video.find_by_key(key)
+      self.video = video
+    else
+      self.video = Video.create(key: key, created_at: created_at)
     end
   end
 end
