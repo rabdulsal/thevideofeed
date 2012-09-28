@@ -21,7 +21,7 @@ class VideoPoster
           response = Net::HTTP.get_response(uri).body
           videos = Hash.from_xml(response)['feed']['entry']
 
-          throw(:break) if results.nil?
+          throw(:break) if videos.nil?
 
           videos.each do |video|
             key = video['group']['videoid']
