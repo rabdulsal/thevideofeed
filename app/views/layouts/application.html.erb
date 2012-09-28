@@ -24,7 +24,7 @@
           <p><%= flash[:notice] %></p>
         <% else %>
           <%= form_for(Subscriber.new) do |f| %>
-            <p>Get our daily new video email:</p>
+            <p>Join <%= Subscriber.count %> others and get our daily email:</p>
             <p>
               <%= f.email_field :email, placeholder: 'you@example.com' %>
               <%= f.submit "Sign up" %>
