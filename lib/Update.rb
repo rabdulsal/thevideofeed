@@ -1,16 +1,16 @@
 require 'net/http'
 
-class VideoUpdater
+class Updater
   class << self
     def perform
       Person.all.each do |person|
-       update_favorites_for(person)
+       update(person)
       end
     end
 
     # Add favorites/videos since the last run using the YouTube API v2.0
     # https://developers.google.com/youtube/2.0/developers_guide_protocol
-    def update_favorites_for(person)
+    def update(person)
       limit  = 50
       offset = 1
       latest = person.favorites.first.try(:created_at)
