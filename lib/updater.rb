@@ -8,8 +8,6 @@ class Updater
       end
     end
 
-    # Add favorites/videos since the last run using the YouTube API v2.0
-    # https://developers.google.com/youtube/2.0/developers_guide_protocol
     def update(person)
       limit  = 50
       offset = 1
@@ -17,11 +15,9 @@ class Updater
 
       catch(:break) do
         loop do
-          uri = URI.parse("http://gdata.youtube.com/feeds/api/users/#{person.username}/favorites?v=2&max-results=#{limit}&start-index=#{offset}")
-          response = Net::HTTP.get_response(uri).body
-          videos = Hash.from_xml(response)['feed']['entry']
+          videos = get_videos(person, limit, offset)
 
-          throw(:break) if videos.nil?
+          throw(:break) if videos.none?
 
           videos.each do |video|
             key = video['group']['videoid']
@@ -35,6 +31,12 @@ class Updater
           offset = offset + limit
         end
       end
+    end
+
+    def get_videos(person, limit, offset)
+      uri = URI.parse("http://gdata.youtube.com/feeds/api/users/#{person.username}/favorites?v=2&max-results=#{limit}&start-index=#{offset}")
+      response = Net::HTTP.get_response(uri).body
+      Hash.from_xml(response)['feed']['entry'] || []
     end
   end
 end
