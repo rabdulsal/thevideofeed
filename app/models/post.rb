@@ -8,8 +8,15 @@ class Post < ActiveRecord::Base
   belongs_to :video
 
   before_validation :set_video, on: :create
+  before_validation :set_video_created_at, on: :create
 
   def set_video
     self.video = Video.find_or_create_by_key(key)
+  end
+
+  def set_video_created_at
+    if video.new_record?
+      video.update_attributes! created_at: created_at
+    end
   end
 end
