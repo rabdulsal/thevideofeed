@@ -17,15 +17,15 @@ class VideoPoster
 
       catch(:break) do
         loop do
-          uri      = URI.parse("http://gdata.youtube.com/feeds/api/users/#{person.username}/favorites?v=2&max-results=#{limit}&start-index=#{offset}")
+          uri = URI.parse("http://gdata.youtube.com/feeds/api/users/#{person.username}/favorites?v=2&max-results=#{limit}&start-index=#{offset}")
           response = Net::HTTP.get_response(uri).body
-          results  = Hash.from_xml(response)['feed']['entry']
+          videos = Hash.from_xml(response)['feed']['entry']
 
           throw(:break) if results.nil?
 
-          results.each do |result|
-            key = result['group']['videoid']
-            created_at = result['published']
+          videos.each do |video|
+            key = video['group']['videoid']
+            created_at = video['published']
 
             throw(:break) if (latest && latest >= created_at)
 
