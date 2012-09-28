@@ -16,7 +16,11 @@ module Thevideofeed
     config.assets.version = '1.0'
     config.autoload_paths << config.root.join('lib')
     config.session_store :cookie_store, key: '_thevideofeed_session'
-    config.secret_token = SecureRandom.hex
+    config.secret_token = ENV['SECRET_TOKEN'] || '8e56821a8aa333ec912e147077038d38'
+
+    def self.message_verifier
+      ActiveSupport::MessageVerifier.new(config.secret_token)
+    end
   end
 end
 

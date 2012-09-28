@@ -12,4 +12,9 @@ class SubscribersController < ApplicationController
       redirect_to(root_path, :notice => "Something went wrong!")
     end
   end
+
+  def destroy
+    Subscriber.find_by_key(params[:key]).destroy
+    render text: "You have been unsubscribed!"
+  end
 end
