@@ -5,8 +5,8 @@
 ## Installation
 
     script/setup
-    rake
-    rake video_updater
+    rake test
+    rake update
     rails server
 
 ## MIT License
