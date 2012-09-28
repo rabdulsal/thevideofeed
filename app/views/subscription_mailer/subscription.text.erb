@@ -6,6 +6,10 @@ Today's <%= @videos.count %> hand-picked <%= @videos.many? ? 'videos' : 'video' 
 
 -- The Video Feed
 
+<%= root_url %>
+
 Unsubsribe by clicking here:
 
 <%= unsubscribe_url(@subscriber.key) %>
+
+
