@@ -10,12 +10,12 @@ Thevideofeed::Application.configure do
   config.active_support.deprecation = :notify
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    port:                 587,
-    address:              "smtp.sendgrid.net",
-    domain:               "thevideofeed.herokuapp.com",
-    user_name:            ENV['SENDGRID_USERNAME'],
-    password:             ENV['SENDGRID_PASSWORD'],
-    authentication:       :plain,
-    enable_starttls_auto: true
+    port: '587',
+    address: 'smtp.sendgrid.net',
+    domain: 'thevideofeed.herokuapp.com',
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
+    authentication: :plain,
+    enable_starttls_auto: true
   }
 end
