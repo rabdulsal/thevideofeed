@@ -1,6 +1,6 @@
 class Favorite < ActiveRecord::Base
   attr_accessor :key
-  attr_accessible :key, :created_at
+  attr_accessible :key, :person_id, :created_at
 
   validates_presence_of   :video_id, :person_id
   validates_uniqueness_of :video_id, scope: :person_id
