@@ -34,6 +34,12 @@ class FavoriteTest < ActiveSupport::TestCase
     end
   end
 
+  test "sets the video title" do
+    @person.favorites.create!(key: 'key', title: 'title', created_at: Date.yesterday.to_time)
+
+    assert_equal 'title', Video.last.title
+  end
+
   test "sets the video created_at to the same as the favorites if creating a new video" do
     @person.favorites.create!(key: 'key', created_at: Date.yesterday.to_time)
 

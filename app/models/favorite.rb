@@ -1,6 +1,6 @@
 class Favorite < ActiveRecord::Base
-  attr_accessor :key
-  attr_accessible :key, :person_id, :created_at
+  attr_accessor :key, :title
+  attr_accessible :key, :title, :created_at, :person_id
 
   validates_presence_of   :video_id, :person_id
   validates_uniqueness_of :video_id, scope: :person_id
@@ -13,7 +13,7 @@ class Favorite < ActiveRecord::Base
     if video = Video.find_by_key(key)
       self.video = video
     else
-      self.video = Video.create(key: key, created_at: created_at)
+      self.video = Video.create(key: key, title: title, created_at: created_at)
     end
   end
 end
