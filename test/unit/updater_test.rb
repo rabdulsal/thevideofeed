@@ -5,7 +5,7 @@ class UpdaterTest < ActiveSupport::TestCase
     pending
   end
 
-  test "creates favorites using the key and favorited at timestamp" do
+  test "creates favorites using the key, title, and favorited at timestamp" do
     pending
   end
 

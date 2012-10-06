@@ -21,11 +21,12 @@ class Updater
 
           videos.each do |video|
             key = video['group']['videoid']
+            title = video['title']
             created_at = video['published']
 
             throw(:break) if (latest && latest >= created_at)
 
-            person.favorites.create(key: key, created_at: created_at)
+            person.favorites.create(key: key, title: title, created_at: created_at)
           end
 
           offset = offset + limit

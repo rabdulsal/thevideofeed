@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928180425) do
+ActiveRecord::Schema.define(:version => 20121006051303) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "video_id"
@@ -31,7 +31,9 @@ ActiveRecord::Schema.define(:version => 20120928180425) do
 
   create_table "videos", :force => true do |t|
     t.string   "key"
-    t.datetime "created_at", :null => false
+    t.datetime "created_at",      :null => false
+    t.string   "title"
+    t.integer  "first_person_id"
   end
 
 end
