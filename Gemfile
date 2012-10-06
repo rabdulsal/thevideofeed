@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'fancybox-rails'
 gem 'jquery-rails'
 gem 'rails'
 gem 'thin'

@@ -5,6 +5,8 @@ class Video < ActiveRecord::Base
 
   has_many :people, through: :favorites
 
+  PER_PAGE = 20
+
   def to_s
     "http://www.youtube.com/watch?v=#{key}"
   end

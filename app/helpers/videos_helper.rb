@@ -4,6 +4,10 @@ module VideosHelper
   end
 
   def thumbnail(video)
-    "http://i.ytimg.com/vi/#{video.key}/hqdefault.jpg"
+    "http://i.ytimg.com/vi/#{video.key}/mqdefault.jpg"
+  end
+  
+  def link(video)
+    "http://www.youtube.com/embed/#{video.key}?&autoplay=1&hd=1"
   end
 end

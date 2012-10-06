@@ -44,6 +44,8 @@ GEM
     excon (0.16.4)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fancybox-rails (0.1.4)
+      railties (>= 3.1.0)
     heroku (2.32.4)
       heroku-api (~> 0.3.5)
       launchy (>= 0.3.2)
@@ -131,6 +133,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails
+  fancybox-rails
   heroku
   jquery-rails
   pg

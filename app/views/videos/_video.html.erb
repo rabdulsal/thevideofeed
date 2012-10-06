@@ -1,1 +1,10 @@
-<p><%= image_tag thumbnail(video) %></p>
+<div class='videos'>
+<%= link_to image_tag(thumbnail(video))%>
+  <div class ="overlay" onclick="location.href= '<%= link(video)%>';" style="cursor:pointer;">
+    <div class="big_user">
+      <p>uploaded by</p>
+      <p class= "play">TEST<p>
+    </div><!-- big_user -->
+  </div><!-- overlay -->
+  <div class="video_title"><p>This is the TITLE TEST<p></div><!-- video_title -->
+</div><!-- videos -->
