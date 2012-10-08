@@ -1,4 +1,4 @@
-$('#videos').append('<%=j render(@videos) %>');
+$('[data-behavior~=pagination]').append('<%=j render(@videos) %>');
 
 <% if @videos.next_page %>
   $('.pagination').replaceWith('<%=j will_paginate(@videos) %>');

@@ -1,8 +1,6 @@
 /*
- *= require fancybox
- *= require_tree 
+ *= require_tree
 */
-
 
 body {
 	background-image:url(<%=asset_path "first_aid_kit.png"%>);
@@ -42,8 +40,8 @@ article{
 }
 
 
-aside .logo { 
-	background-image:url(<%=asset_path "diagonal-noise.png"%>);	
+aside .logo {
+	background-image:url(<%=asset_path "diagonal-noise.png"%>);
 	vertical-align:top;
 	padding:10px 10px 10px 10px;
 	display:inline-block;
@@ -62,7 +60,7 @@ h1 {
 h2 {
 }
 
-p{	
+p{
 }
 
 p2 {
@@ -94,7 +92,7 @@ border: 1px solid #999;
 }
 
 input:focus {
-	outline: none; 
+	outline: none;
 	-webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 	-moz-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
@@ -161,9 +159,9 @@ header {
 .video_row {
 		display:inline-block;
 		text-align:center;
-		padding: 30px 10px 0px 70px;		
+		padding: 30px 10px 0px 70px;
 	}
-	
+
 .videos {
 	position:relative;
 	background:rgba(139, 137, 137, .2);
@@ -172,13 +170,15 @@ header {
 	display:inline-block;
 	color: #fff;
 	}
-	
+
 .videos img {
+	/*max-height: 100px;*/
+	/*max-width: 100px;*/
 	display:block;
 }
-	
 
-	
+
+
 .videos .overlay {
 	    background-color:rgba(190, 36, 30, .0);
 	    bottom: 0px;
@@ -197,9 +197,9 @@ header {
 			transition-property: background-color;
 		  transition-duration: .5s;
 	}
-	
-.videos .overlay:hover{ 
-	background-color:rgba(190, 36, 30, .7); 
+
+.videos .overlay:hover{
+	background-color:rgba(190, 36, 30, .7);
 }
 
 

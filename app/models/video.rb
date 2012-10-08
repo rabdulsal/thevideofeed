@@ -9,8 +9,4 @@ class Video < ActiveRecord::Base
   belongs_to :first_person, class_name: 'Person'
 
   PER_PAGE = 20
-
-  def to_s
-    "http://www.youtube.com/watch?v=#{key}"
-  end
 end
