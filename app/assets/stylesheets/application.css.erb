@@ -1,6 +1,9 @@
 /*
- *= require_tree
-*/
+ *= require reset
+ *= require_self
+ *= require fancybox
+ *= require_tree .
+ */
 
 body {
 	background-image:url(<%=asset_path "first_aid_kit.png"%>);
@@ -162,7 +165,7 @@ header {
 		padding: 30px 10px 0px 70px;
 	}
 
-.videos {
+.video {
 	position:relative;
 	background:rgba(139, 137, 137, .2);
 	margin: 22px 12px;
@@ -171,15 +174,17 @@ header {
 	color: #fff;
 	}
 
-.videos img {
-	/*max-height: 100px;*/
-	/*max-width: 100px;*/
+.video a {
+	color: #fff;
+}
+
+.video img {
+	max-height: 320px;
+	max-width: 320px;
 	display:block;
 }
 
-
-
-.videos .overlay {
+.video .overlay {
 	    background-color:rgba(190, 36, 30, .0);
 	    bottom: 0px;
 	    display: block;
@@ -198,10 +203,9 @@ header {
 		  transition-duration: .5s;
 	}
 
-.videos .overlay:hover{
+.video .overlay:hover{
 	background-color:rgba(190, 36, 30, .7);
 }
-
 
 .big_user{
 		width:100%;
@@ -233,13 +237,12 @@ header {
 		letter-spacing:2px;
 }
 
-
-.video_title{
+.video_title {
 	float:left;
 	margin:12px 0px 0px 5px;
 }
 
 .video_title p{
-font-size:16px;
-color:rgba(150, 36, 50, 1.0);
+	font-size:16px;
+	color:rgba(150, 36, 50, 1.0);
 }

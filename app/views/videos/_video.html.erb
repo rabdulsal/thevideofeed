@@ -1,12 +1,13 @@
-<div class='videos'>
-  <%= link_to image_tag(thumbnail(video))%>
+<div class='video'>
+  <%= link_to video_link(video), class: 'fancybox iframe' do %>
+    <%= image_tag video_thumb(video) %>
 
-  <div class ="overlay" onclick="location.href= '<%= link(video)%>';" style="cursor:pointer;">
-    <div class="big_user">
-      <p>uploaded by</p>
-      <p class= "play"><%= video.first_person.username %><p>
-    </div><!-- big_user -->
-  </div><!-- overlay -->
-
-  <div class="video_title"><p><%= truncate(video.title, length: 22) %><p></div><!-- video_title -->
-</div><!-- videos -->
+    <div class="overlay">
+      <div class="big_user">
+        <p>uploaded by</p>
+        <p class= "play"><%= video.first_person.username %><p>
+      </div><!-- big_user -->
+    </div><!-- overlay -->
+    <div class="video_title"><p><%= truncate(video.title, length: 22) %><p></div><!-- video_title -->
+  <% end %>
+</div><!-- video -->
