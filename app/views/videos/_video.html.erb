@@ -3,10 +3,10 @@
     <%= image_tag video_thumb(video) %>
 
     <div class="overlay">
-      <div class="big_user">
-        <p>uploaded by</p>
-        <p class= "play"><%= video.first_person.username %><p>
-      </div><!-- big_user -->
+      <div class="overlay_copy">
+        <p>first fed from</p>
+        <p class= "overlay_user"><%= video.first_person.username %><p>
+      </div><!-- overlay_copy -->
     </div><!-- overlay -->
     <div class="video_title">
       <p><%= video.title %><p>
