@@ -6,6 +6,7 @@ class Video < ActiveRecord::Base
   validates :key, presence: true, uniqueness: true
   validates :title, presence: true
   validates :source, presence: true
+  validates_inclusion_of :source, :in => VIDEO_SOURCES
 
   has_many :favorites
   has_many :people, through: :favorites
