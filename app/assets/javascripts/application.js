@@ -10,4 +10,4 @@ $(document).ready(function() {
 		'autoscale' : true,
 		'overlayOpacity' : 0.8
   });
-});
+})(jQuery)
