@@ -1,4 +1,6 @@
 class Video < ActiveRecord::Base
+  PER_PAGE = 20
+
   attr_accessible :key, :title, :created_at
 
   validates :key, presence: true, uniqueness: true
@@ -7,6 +9,4 @@ class Video < ActiveRecord::Base
   has_many :favorites
   has_many :people, through: :favorites
   belongs_to :first_person, class_name: 'Person'
-
-  PER_PAGE = 20
 end

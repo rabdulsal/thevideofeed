@@ -9,32 +9,33 @@
   </head>
   <body>
     <aside>
-      <article>  
-        <h1><%= link_to "VIDEO FEED ME", root_path %></h1>
-         <p2>curated by:</p2>
+      <article>
+        <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
+
+        <p2>curated by:</p2>
           <div id="people">
             <% Person.all.each do |person| %>
               <p><%= link_to person.username, "/#{person.username}" %></p>
             <% end %>
           </div>
-          <div id="subscribers">            
-            <p3>GET THE DAILY DIGEST</p3>             
-          <% if flash[:notice] %>
-            <p><%= flash[:notice] %></p>
-          <% else %>
-            <%= form_for(Subscriber.new) do |f| %>
-              <p>
-                <%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %>
-              </p>   
-              <p>
-              <%= f.submit "Sign up", class:"submit" %>
-              </p>
+
+          <div id="subscribers">
+            <p3>GET THE DAILY DIGEST</p3>
+
+            <% if flash[:notice] %>
+              <p><%= flash[:notice] %></p>
+            <% else %>
+              <%= form_for(Subscriber.new) do |f| %>
+                <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
+                <p><%= f.submit "Sign up", class:"submit" %></p>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
+          </div>
+
         </article><%= link_to image_tag("logo_medium.png"), root_path, class: "logo" %>
       </aside>
-        <header></header>
+      <header></header>
+
     <div class="video_row">
       <%= yield %>
     </div>

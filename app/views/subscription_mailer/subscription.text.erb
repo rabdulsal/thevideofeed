@@ -1,7 +1,9 @@
-Today's <%= @videos.count %> hand-picked <%= @videos.many? ? 'videos' : 'video' %>:
+Today's <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
 
 <% @videos.each do |video| %>
-<%= video %>
+  <%= video.title %>
+  <%= video_link(video) %>
+
 <% end %>
 
 -- The Video Feed
@@ -11,5 +13,4 @@ Today's <%= @videos.count %> hand-picked <%= @videos.many? ? 'videos' : 'video' 
 Unsubscribe by clicking here:
 
 <%= unsubscribe_url(@subscriber.key) %>
-
 

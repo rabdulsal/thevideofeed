@@ -1,4 +1,6 @@
 class SubscriptionMailer < ActionMailer::Base
+  add_template_helper(VideosHelper)
+
   default from: "The Video Feed <trevorturk@gmail.com>"
 
   def subscription(subscriber, videos)
