@@ -4,7 +4,10 @@
 
 $(document).ready(function() {
   $("a.fancybox").fancybox({
-    'width':'9999',
-    'height':'9999'
+		'width' : 853,
+    'height': 480,
+		'autoDimensions' : false,
+		'autoscale' : true,
+		'overlayOpacity' : 0.8
   });
 });
