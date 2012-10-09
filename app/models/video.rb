@@ -1,7 +1,7 @@
 class Video < ActiveRecord::Base
   PER_PAGE = 20
 
-  attr_accessible :source, :key, :title, :created_at
+  attr_accessible :source, :key, :title, :thumbnail_url, :created_at
 
   validates :key, presence: true, uniqueness: true
   validates :title, presence: true
