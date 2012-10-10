@@ -12,7 +12,7 @@
       <article>
         <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
 
-        <p2>curated by:</p2>
+        <p2>VIDEOS FAVORITED BY:</p2>
           <div id="people">
             <% Person.all.each do |person| %>
               <p><%= link_to person.username, "/#{person.username}" %></p>
@@ -27,7 +27,7 @@
             <% else %>
               <%= form_for(Subscriber.new) do |f| %>
                 <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
-                <p><%= f.submit "Sign up", class:"submit" %></p>
+                <p><%= f.submit "Feed me", class:"submit" %></p>
               <% end %>
             <% end %>
           </div>
