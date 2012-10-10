@@ -8,6 +8,13 @@ class Person < ActiveRecord::Base
   has_many :favorites
   has_many :videos, through: :favorites
 
+  def username
+    name = []
+    name.push youtube_username unless youtube_username.blank?
+    name.push vimeo_username unless vimeo_username.blank?
+    name.join("/")
+  end
+
   private
 
     def youtube_or_vimeo_username
