@@ -15,6 +15,10 @@ class Person < ActiveRecord::Base
     name.join("/")
   end
 
+  def most_recent_video_with_source(source)
+    videos.where(source: source).order("created_at DESC").first
+  end
+
   private
 
     def youtube_or_vimeo_username

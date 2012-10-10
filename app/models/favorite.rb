@@ -24,4 +24,5 @@ class Favorite < ActiveRecord::Base
     video.first_person = video.favorites.order('created_at asc').first.person
     video.save!
   end
+
 end
