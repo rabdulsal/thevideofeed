@@ -1,10 +1,6 @@
 module VideosHelper
   def video_thumb(video)
-    if video.source == "youtube"
-      "http://i.ytimg.com/vi/#{video.key}/mqdefault.jpg"
-    elsif video.source == "vimeo"
-      ""
-    end
+    video.thumbnail_url
   end
 
   def video_embed(video)
