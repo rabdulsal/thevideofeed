@@ -13,7 +13,7 @@ class Favorite < ActiveRecord::Base
   after_create :update_video_first_person
 
   def find_or_create_video
-    if video = Video.find_by_key(key)
+    if video = Video.find_by_key_and_source(key, source)
       self.video = video
     else
       self.video = Video.create(key: key, title: title, created_at: created_at, source: source, thumbnail_url: thumbnail_url)

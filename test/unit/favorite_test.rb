@@ -9,7 +9,7 @@ class FavoriteTest < ActiveSupport::TestCase
   test "requires video and person" do
     assert Favorite.new.invalid?
     assert Favorite.new(key: 'key', title: 'title', source: 'youtube').invalid?
-    assert @person.favorites.build(key: 'key', title: 'title').valid?
+    assert @person.favorites.build(key: 'key', title: 'title',source: 'youtube').valid?
   end
 
   test "doesn't allow two favorites for the same video by the same user" do
