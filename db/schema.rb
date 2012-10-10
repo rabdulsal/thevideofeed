@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121009223528) do
+ActiveRecord::Schema.define(:version => 20121009205857) do
 
   create_table "favorites", :force => true do |t|
     t.integer  "video_id"
@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(:version => 20121009223528) do
     t.datetime "created_at",      :null => false
     t.string   "title"
     t.integer  "first_person_id"
-    t.string   "source"
     t.string   "thumbnail_url"
+    t.string   "source"
   end
 
 end

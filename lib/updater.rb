@@ -16,6 +16,7 @@ class Updater
 # YOUTUBE
     def update_youtube_videos(person)
       return if person.youtube_username.blank?
+      #puts "========> adding YouTube videos"
       limit  = 50
       offset = 1
       latest = person.favorites.first.try(:created_at)
@@ -32,7 +33,7 @@ class Updater
             created_at = video['published']
 
             throw(:break) if (latest && latest >= created_at)
-
+            puts "adding youtube video #{title}"
             person.favorites.create(key: key, title: title, created_at: created_at, source: "youtube", thumbnail_url: "http://i.ytimg.com/vi/#{key}/mqdefault.jpg")
           end
 
@@ -50,6 +51,7 @@ class Updater
 # VIMEO
     def update_vimeo_videos(person)
       return if person.vimeo_username.blank?
+      #puts "========> adding vimeo videos"
       page = 1
       total_pages = 3
       # to get more, we would to signup for advanced API
@@ -70,7 +72,7 @@ class Updater
             thumbnail_url = video['thumbnail_large']
 
             throw(:break) if (latest && latest >= created_at)
-
+            puts "adding vimeo video #{title}"
             person.favorites.create(key: key, title: title, created_at: created_at, source: "vimeo", thumbnail_url: thumbnail_url)
           end
 
