@@ -1,7 +1,7 @@
 Today's <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
 
 <% @videos.each do |video| %>
-  <%= video.title %>
+  <%= video.title %> from <%= video.first_person.username %>
   <%= video_link(video) %>
 
 <% end %>
