@@ -5,5 +5,5 @@ Thevideofeed::Application.routes.draw do
   get 'unsubscribe/:key', to: 'subscribers#destroy', as: :unsubscribe, key: /.*/
 
   # This route should be last
-  match '/:username' => "people#show"
+  match '/:id' => "people#show"
 end
