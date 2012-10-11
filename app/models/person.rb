@@ -1,31 +1,25 @@
 class Person < ActiveRecord::Base
   attr_accessible :youtube_username, :vimeo_username
 
-  validate :youtube_or_vimeo_username
-  validates :youtube_username, uniqueness: true, :unless => "youtube_username.nil?"
-  validates :vimeo_username, uniqueness: true, :unless => "vimeo_username.nil?"
+  validate :validate_youtube_or_vimeo_username
+  validates_uniqueness_of :youtube_username, allow_blank: true
+  validates_uniqueness_of :vimeo_username, allow_blank: true
 
   has_many :favorites
   has_many :videos, through: :favorites
 
   def username
-    name = []
-    name.push youtube_username unless youtube_username.blank?
-    name.push vimeo_username unless vimeo_username.blank?
-    name.join("/")
+    ( [youtube_username] + [vimeo_username] ).compact.join('/')
   end
 
   def most_recent_video_with_source(source)
-    videos.where(source: source).order("created_at DESC").first
+    videos.where(source: source).order('created_at desc').first
   end
 
   private
-
-    def youtube_or_vimeo_username
+    def validate_youtube_or_vimeo_username
       if youtube_username.blank? and vimeo_username.blank?
-        errors[:base] << "Specify a YouTube or Vimeo username (or both)"
+        errors[:base] << 'Specify a YouTube or Vimeo username (or both)'
       end
     end
-
-
 end
