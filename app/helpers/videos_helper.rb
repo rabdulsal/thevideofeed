@@ -11,7 +11,7 @@ module VideosHelper
     if video.source == "youtube"
       "http://www.youtube.com/watch?v=#{video.key}"
     elsif video.source == "vimeo"
-      "https://vimeo.com/#{video.key}"
+      "http://player.vimeo.com/video/#{video.key}?autoplay=1"
     end
   end
 end
