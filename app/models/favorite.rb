@@ -9,7 +9,6 @@ class Favorite < ActiveRecord::Base
   belongs_to :video
 
   before_validation :find_or_create_video, on: :create
-
   after_create :update_video_first_person
 
   def find_or_create_video
@@ -24,5 +23,4 @@ class Favorite < ActiveRecord::Base
     video.first_person = video.favorites.order('created_at asc').first.person
     video.save!
   end
-
 end
