@@ -13,7 +13,7 @@ class Updater
       update_vimeo_videos(person)
     end
 
-# YOUTUBE
+  private
     def update_youtube_videos(person)
       return if person.youtube_username.blank?
 
@@ -33,7 +33,6 @@ class Updater
             created_at = video['published']
 
             throw(:break) if (latest && latest >= created_at)
-            #puts "adding youtube video #{title}"
             person.favorites.create(key: key, title: title, created_at: created_at, source: "youtube", thumbnail_url: "http://i.ytimg.com/vi/#{key}/mqdefault.jpg")
           end
 
@@ -48,7 +47,6 @@ class Updater
       Hash.from_xml(response)['feed']['entry'] || []
     end
 
-# VIMEO
     def update_vimeo_videos(person)
       return if person.vimeo_username.blank?
 
@@ -72,13 +70,10 @@ class Updater
             thumbnail_url = video['thumbnail_large']
 
             throw(:break) if (latest && latest >= created_at)
-            #puts "adding vimeo video #{title}"
             person.favorites.create(key: key, title: title, created_at: created_at, source: "vimeo", thumbnail_url: thumbnail_url)
           end
-
         end
       end
-
     end
 
     def get_vimeo_videos(person, page)
@@ -87,7 +82,5 @@ class Updater
       videos = Hash.from_xml(response)['videos']
       videos.blank? ? [] : videos['video']
     end
-
-
   end
 end
