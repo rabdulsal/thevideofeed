@@ -15,7 +15,7 @@
         <p2>VIDEOS FAVORITED BY:</p2>
           <div id="people">
             <% Person.all.each do |person| %>
-              <p><%= link_to person.username, "/#{person.id}" %></p>
+              <p><%= link_to person, person %></p>
             <% end %>
           </div>
 

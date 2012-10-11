@@ -16,6 +16,10 @@ class Person < ActiveRecord::Base
     videos.where(source: source).order('created_at desc').first
   end
 
+  def to_s
+    username
+  end
+
   private
     def validate_youtube_or_vimeo_username
       if youtube_username.blank? and vimeo_username.blank?

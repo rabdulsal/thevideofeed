@@ -4,6 +4,5 @@ Thevideofeed::Application.routes.draw do
   resources :subscribers, only: :create
   get 'unsubscribe/:key', to: 'subscribers#destroy', as: :unsubscribe, key: /.*/
 
-  # This route should be last
-  match '/:id' => "people#show"
+  resources :people, only: :show
 end
