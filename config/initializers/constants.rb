@@ -1,1 +1,0 @@
-VIDEO_SOURCES = ["youtube", "vimeo"]
