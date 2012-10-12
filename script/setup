@@ -6,7 +6,7 @@
   gem list -i bundler || gem install bundler && rbenv rehash
   bundle install && rbenv rehash
 
-  rake db:drop:all db:create:all db:setup db:test:prepare
+  rake db:drop:all db:create:all db:setup db:test:prepare test
   touch tmp/restart.txt
 
 } >/dev/null 2>&1
