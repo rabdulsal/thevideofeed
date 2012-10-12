@@ -10,6 +10,7 @@ class Person < ActiveRecord::Base
   has_many :videos, through: :favorites
 
   def self.add(opts = {})
+    Subscriber.create email: opts.delete(:email)
     person = create!(opts)
     Updater.update(person)
   end
