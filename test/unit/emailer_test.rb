@@ -10,7 +10,7 @@ class EmailerTest < ActiveSupport::TestCase
 
   test "perform sends videos created in the last 24hrs to all subscribers" do
     Video.create! key: 'key', title: 'title', source: 'youtube'
-    Video.update_all first_person_id: Person.create!(youtube_username: 'test').id
+    Video.update_all first_person_id: Person.create!(name: 'test', youtube_username: 'test').id
     Emailer.perform
 
     assert_equal 2, ActionMailer::Base.deliveries.size
