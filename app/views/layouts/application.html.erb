@@ -6,7 +6,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag "logo_favicon.png" %>
-    <%= auto_discovery_link_tag %>
+    <%= auto_discovery_link_tag :rss, videos_url(format: :rss) %>
   </head>
   <body>
     <aside>
