@@ -1,15 +1,9 @@
 require 'test_helper'
 
 class UpdaterTest < ActiveSupport::TestCase
-  test "perform updates favorites for all users" do
-    pending
-  end
-
-  test "creates favorites using the key, title, and favorited at timestamp" do
-    pending
-  end
-
-  test "breaks when encountering an existing favorite" do
-    pending
+  test "perform updates favorites" do
+    person = Person.create! name: 'trevorturk', youtube_username: 'trevorturk', vimeo_username: 'trevorturk'
+    Updater.perform
+    assert person.favorites.many?
   end
 end
