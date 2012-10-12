@@ -9,13 +9,13 @@ class Person < ActiveRecord::Base
   has_many :favorites
   has_many :videos, through: :favorites
 
-  def most_recent_video_with_source(source)
-    videos.where(source: source).order('created_at desc').first
-  end
-
-  def add(opts = {})
+  def self.add(opts = {})
     person = create!(opts)
     Updater.update(person)
+  end
+
+  def most_recent_video_with_source(source)
+    videos.where(source: source).order('created_at desc').first
   end
 
   private
