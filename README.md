@@ -5,9 +5,6 @@
 ## Installation
 
     script/setup
-    rake test
-    rake update
-    rails server
 
 ## MIT License
 

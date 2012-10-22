@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PeopleControllerTest < ActionController::TestCase
   setup do
-    @person = Person.create! { |p| p.youtube_username = 'test' }
+    @person = Person.create! name: 'test', youtube_username: 'test'
   end
 
   test 'show' do

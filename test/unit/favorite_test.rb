@@ -2,8 +2,8 @@ require 'test_helper'
 
 class FavoriteTest < ActiveSupport::TestCase
   setup do
-    @person = Person.create! youtube_username: 'test'
-    @person2 = Person.create! youtube_username: 'test2'
+    @person = Person.create! name: 'test', youtube_username: 'test'
+    @person2 = Person.create! name: 'test2', youtube_username: 'test2'
   end
 
   test "requires video and person" do

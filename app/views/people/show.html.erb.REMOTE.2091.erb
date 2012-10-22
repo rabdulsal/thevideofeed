@@ -1,0 +1,6 @@
+<div data-behavior="pagination">
+  <h2><%= @person.name %>&rsquo;s picks</h2>
+  <%= render @videos %>
+</div>
+
+<%= will_paginate @videos %>

@@ -9,6 +9,7 @@
     <%= auto_discovery_link_tag :rss, videos_url(format: :rss) %>
   </head>
   <body>
+<<<<<<< HEAD
     <div class="hidden_header">
        <div class="hidden_header_content">   
          <div class="hidden_header_title"> 
@@ -49,6 +50,36 @@
         </div><!-- all_people -->
       </div><!-- people_list -->
       
+=======
+    <aside>
+      <article>
+        <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
+
+        <p2>VIDEOS FAVORITED BY:</p2>
+          <div id="people">
+            <% Person.all.sort_by(&:name).each do |person| %>
+              <p><%= link_to person.name, person %></p>
+            <% end %>
+          </div>
+
+          <div id="subscribers">
+            <p3>GET THE DAILY DIGEST</p3>
+
+            <% if flash[:notice] %>
+              <p><%= flash[:notice] %></p>
+            <% else %>
+              <%= form_for(Subscriber.new) do |f| %>
+                <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
+                <p><%= f.submit "Feed me", class:"submit" %></p>
+              <% end %>
+            <% end %>
+          </div>
+
+        </article><%= link_to image_tag("logo_medium.png"), root_path, class: "logo" %>
+      </aside>
+      <header></header>
+
+>>>>>>> 355d2c645fef27f8acef841528f3d71300732adc
     <div class="video_row">
       <%= yield %>
     </div>

@@ -10,4 +10,9 @@ class VideosControllerTest < ActionController::TestCase
     get :index, format: :js
     assert_response :ok
   end
+
+  test 'index rss' do
+    get :index, format: :rss
+    assert_response :ok
+  end
 end
