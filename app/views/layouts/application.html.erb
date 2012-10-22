@@ -23,19 +23,20 @@
         <div class="header_content_title"> 
           <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
         </div><!-- header_title -->
-          <%= link_to image_tag("logo_medium_2.png"), root_path, class: "logo" %>
+
+        <%= link_to image_tag("logo_medium_2.png"), root_path, class: "logo" %>
           
-             <div id="subscribers">
-                  <p3>GET THE DAILY DIGEST</p3>
-                  <% if flash[:notice] %>
-                    <p><%= flash[:notice] %></p>
-                  <% else %>
-                    <%= form_for(Subscriber.new) do |f| %>
-                      <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
-                      <p><%= f.submit "Feed me", class:"submit" %></p>
-                    <% end %>
-                  <% end %>
-                </div><!-- subscribers -->
+        <div id="subscribers">
+          <% if flash[:notice] %>
+            <p class="flash"><%= flash[:notice] %></p>
+          <% else %>
+            <p3>GET THE DAILY DIGEST</p3>
+            <%= form_for(Subscriber.new) do |f| %>
+              <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
+              <p><%= f.submit "Feed me", class:"submit" %></p>
+            <% end %>
+          <% end %>
+        </div><!-- subscribers -->
           
       </div><!-- header_content -->              
     </header>
