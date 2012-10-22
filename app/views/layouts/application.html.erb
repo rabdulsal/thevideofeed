@@ -8,34 +8,46 @@
     <%= favicon_link_tag "logo_favicon.png" %>
   </head>
   <body>
-    <aside>
-      <article>
-        <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
-
-        <p2>VIDEOS FAVORITED BY:</p2>
-          <div id="people">
-            <% Person.all.each do |person| %>
-              <p><%= link_to person, person %></p>
-            <% end %>
-          </div>
-
-          <div id="subscribers">
-            <p3>GET THE DAILY DIGEST</p3>
-
-            <% if flash[:notice] %>
-              <p><%= flash[:notice] %></p>
-            <% else %>
-              <%= form_for(Subscriber.new) do |f| %>
-                <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
-                <p><%= f.submit "Feed me", class:"submit" %></p>
-              <% end %>
-            <% end %>
-          </div>
-
-        </article><%= link_to image_tag("logo_medium.png"), root_path, class: "logo" %>
-      </aside>
-      <header></header>
-
+    <div class="hidden_header">
+       <div class="hidden_header_content">   
+         <div class="hidden_header_title"> 
+           <h2><%= link_to "THE VIDEO FEED", root_path %></h2>
+         </div><!-- title -->
+         <%= link_to image_tag("logo_small.png"), root_path, class: "hidden_logo" %>
+       </div><!-- header_content -->
+    </div><!-- hidden_header -->
+    
+    <header>
+      <div class="header_content"> 
+        <div class="header_content_title"> 
+          <h1><%= link_to "THE VIDEO FEED", root_path %></h1>
+        </div><!-- header_title -->
+          <%= link_to image_tag("logo_medium_2.png"), root_path, class: "logo" %>
+          
+             <div id="subscribers">
+                  <p3>GET THE DAILY DIGEST</p3>
+                  <% if flash[:notice] %>
+                    <p><%= flash[:notice] %></p>
+                  <% else %>
+                    <%= form_for(Subscriber.new) do |f| %>
+                      <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
+                      <p><%= f.submit "Feed me", class:"submit" %></p>
+                    <% end %>
+                  <% end %>
+                </div><!-- subscribers -->
+          
+      </div><!-- header_content -->              
+    </header>
+      
+      <div id="people_list">
+        <p2>THE FAVORITES OF:</p2>
+        <div class="all_people">
+        <% Person.all.each do |person| %>
+          <p><%= link_to person, person %></p>
+        <% end %>
+        </div><!-- all_people -->
+      </div><!-- people_list -->
+      
     <div class="video_row">
       <%= yield %>
     </div>
