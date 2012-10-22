@@ -1,3 +1,3 @@
-task :update => :environment do
+task :ping => :environment do
   Pinger.perform
 end
