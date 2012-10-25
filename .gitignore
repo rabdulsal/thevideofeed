@@ -4,3 +4,4 @@
 /tmp
 .powenv
 .powrc
+.DS_Store
