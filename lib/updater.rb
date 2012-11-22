@@ -50,7 +50,7 @@ class Updater
       def update_vimeo_videos(person)
         return if person.vimeo_username.blank?
 
-        page = 1
+  
         total_pages = 3
         # to get more, we would to signup for advanced API
         # https://developer.vimeo.com/apis/simple#limits
