@@ -10,7 +10,14 @@ Today's <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
 
 <%= root_url %>
 
-Unsubscribe by clicking here:
+<%- if @subscriber.daily? %>
+Change to a weekly email:
+<%= subscribe_weekly_url(@subscriber.key) %>
+<%- else %>
+Change to a daily email:
+<%= subscribe_daily_url(@subscriber.key) %>
+<%- end %>
 
+Unsubscribe:
 <%= unsubscribe_url(@subscriber.key) %>
 

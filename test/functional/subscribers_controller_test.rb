@@ -27,6 +27,26 @@ class SubscribersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
 
+  test "switch to weekly" do
+    subscriber = Subscriber.create! email: 'test@example.com'
+    assert subscriber.daily?
+
+    get :weekly, key: subscriber.key
+    assert_response :ok
+
+    assert ! subscriber.reload.daily?
+  end
+
+  test "switch to daily" do
+    subscriber = Subscriber.create! email: 'test@example.com', daily: false
+    assert ! subscriber.daily?
+
+    get :daily, key: subscriber.key
+    assert_response :ok
+
+    assert subscriber.reload.daily?
+  end
+
   test "subscriber is destroyed if valid key provided" do
     subscriber = Subscriber.create! email: 'test@example.com'
 
@@ -49,11 +69,19 @@ class SubscribersControllerTest < ActionController::TestCase
     end
   end
 
-  test "404 if already invalid key" do
+  test "404 if invalid key on destroy, daily, weekly" do
     assert_raise(ActiveRecord::RecordNotFound) do
       assert_no_difference('Subscriber.count') do
         get :destroy, key: 'invalid'
       end
+    end
+
+    assert_raise(ActiveRecord::RecordNotFound) do
+      get :daily, key: 'invalid'
+    end
+
+    assert_raise(ActiveRecord::RecordNotFound) do
+      get :weekly, key: 'invalid'
     end
   end
 end

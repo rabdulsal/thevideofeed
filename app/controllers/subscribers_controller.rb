@@ -1,4 +1,6 @@
 class SubscribersController < ApplicationController
+  before_filter :set_subscriber, only: [ :daily, :weekly, :destroy ]
+
   def create
     @subscriber = Subscriber.new(params[:subscriber])
 
@@ -13,8 +15,23 @@ class SubscribersController < ApplicationController
     end
   end
 
-  def destroy
-    Subscriber.find_by_key(params[:key]).destroy
-    render text: "You have been unsubscribed."
+  def daily
+    @subscriber.update_attributes! daily: true
+    render text: "EMAILS SET TO DAILY."
   end
+
+  def weekly
+    @subscriber.update_attributes! daily: false
+    render text: "EMAILS SET TO WEEKLY."
+  end
+
+  def destroy
+    @subscriber.destroy
+    render text: "UNSUBSCRIBED."
+  end
+
+  private
+    def set_subscriber
+      @subscriber = Subscriber.find_by_key(params[:key])
+    end
 end
