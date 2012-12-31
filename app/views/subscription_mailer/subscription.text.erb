@@ -1,13 +1,11 @@
 Today's <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
 
 <% @videos.each do |video| %>
-  <%== video.title %> from <%== video.first_person.name %>
-  <%= video_link(video) %>
+<%== video.title %> from <%== video.first_person.name %>
+<%= video_link(video) %>
 
 <% end %>
-
 -- The Video Feed
-
 <%= root_url %>
 
 <%- if @subscriber.daily? %>
@@ -20,4 +18,3 @@ Change to a daily email:
 
 Unsubscribe:
 <%= unsubscribe_url(@subscriber.key) %>
-
