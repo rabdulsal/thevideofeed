@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'fancybox-rails'
 gem 'jquery-rails'
-gem 'rails'
+gem 'rails', '3.2.11'
 gem 'thin'
 gem 'validate_as_email'
 gem 'will_paginate'
