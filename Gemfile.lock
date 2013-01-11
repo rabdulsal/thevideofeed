@@ -138,7 +138,7 @@ DEPENDENCIES
   heroku
   jquery-rails
   pg
-  rails (= 3.2.11)
+  rails
   sass-rails
   sqlite3
   thin
