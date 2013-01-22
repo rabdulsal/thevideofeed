@@ -6,7 +6,7 @@ xml.rss version: "2.0" do
 
     Video.order("created_at desc").includes(:first_person).limit(30).each do |video|
       xml.item do
-        xml.title "#{video.title} from #{video.first_person.name}"
+        xml.title "#{video.title} [#{video.first_person.name}]"
         xml.description video_link(video)
         xml.pubDate video.created_at.to_s(:rfc822)
       end
