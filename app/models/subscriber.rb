@@ -7,14 +7,6 @@ class Subscriber < ActiveRecord::Base
     Thevideofeed::Application.message_verifier.generate(id)
   end
 
-  def self.for_delivery(time)
-    if time.friday?
-      all
-    else
-      where daily: true
-    end
-  end
-
   def self.find_by_key(key)
     id = Thevideofeed::Application.message_verifier.verify(key)
     find(id)

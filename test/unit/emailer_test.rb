@@ -36,6 +36,17 @@ class EmailerTest < ActiveSupport::TestCase
     assert_equal 1, ActionMailer::Base.deliveries.size
   end
 
+  test "perform sends videos up to on week old to weekly subscribers" do
+    Subscriber.first.destroy
+    Subscriber.last.update_attributes! daily: false
+
+    Video.create! key: 'key', title: 'title', source: 'youtube', created_at: 5.days.ago
+    Video.update_all first_person_id: Person.create!(name: 'test', youtube_username: 'test').id
+    Emailer.perform Time.parse('2013/01/04') # Friday
+
+    assert_equal 1, ActionMailer::Base.deliveries.size
+  end
+
   test "perform does not send old videos" do
     Video.create! key: 'key', title: 'title', created_at: 2.days.ago, source: 'youtube'
     Emailer.perform
