@@ -31,9 +31,10 @@ class Updater
               key = video['group']['videoid']
               title = video['title']
               created_at = video['published']
+              views = video['statistics'].try(:[], 'viewCount')
 
               throw(:break) if (latest && latest >= created_at)
-              person.favorites.create(key: key, title: title, created_at: created_at, source: "youtube", thumbnail_url: "http://i.ytimg.com/vi/#{key}/mqdefault.jpg")
+              person.favorites.create(key: key, title: title, created_at: created_at, views: views, source: "youtube", thumbnail_url: "http://i.ytimg.com/vi/#{key}/mqdefault.jpg")
             end
 
             offset = offset + limit
@@ -50,7 +51,7 @@ class Updater
       def update_vimeo_videos(person)
         return if person.vimeo_username.blank?
 
-  
+
         total_pages = 3
         # to get more, we would to signup for advanced API
         # https://developer.vimeo.com/apis/simple#limits
@@ -68,9 +69,10 @@ class Updater
               title = video['title']
               created_at = video['liked_on']
               thumbnail_url = video['thumbnail_large']
+              views = video['stats_number_of_plays']
 
               throw(:break) if (latest && latest >= created_at)
-              person.favorites.create(key: key, title: title, created_at: created_at, source: "vimeo", thumbnail_url: thumbnail_url)
+              person.favorites.create(key: key, title: title, created_at: created_at, views: views, source: "vimeo", thumbnail_url: thumbnail_url)
             end
           end
         end

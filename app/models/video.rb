@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   PER_PAGE = 20
   SOURCES  = ["youtube", "vimeo"]
 
-  attr_accessible :source, :key, :title, :thumbnail_url, :created_at
+  attr_accessible :source, :key, :title, :thumbnail_url, :created_at, :views
 
   validates :key, presence: true, uniqueness: true
   validates :title, presence: true

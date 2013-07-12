@@ -5,7 +5,10 @@
     <div class="overlay">
       <div class="overlay_copy">
         <p>first fed from</p>
-        <p class= "overlay_user"><%= video.first_person.name %><p>
+        <p class= "overlay_user">
+          <%= video.first_person.name %>
+          <%= "<br> at #{number_with_delimiter(video.views)} views".html_safe if video.views %>
+        <p>
       </div><!-- overlay_copy -->
     </div><!-- overlay -->
 
