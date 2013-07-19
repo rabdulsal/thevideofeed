@@ -8,9 +8,8 @@
         <div class= "overlay_user">
         <%= video.first_person.name %>
         </div>
-        <span>at</span>
         <div class='views'>
-          <%= " #{number_with_delimiter(video.views)} views".html_safe if video.views %>
+          <%= "<div class='small'>at</div> #{number_with_delimiter(video.views)} views".html_safe if video.views %>
         </div>   
       </div>
     </div><!-- overlay -->
