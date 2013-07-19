@@ -33,7 +33,7 @@
             <p3>GET THE DAILY DIGEST</p3>
             <%= form_for(Subscriber.new) do |f| %>
               <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
-              <p><%= f.submit "Feed me", class:"submit" %></p>
+              <span><%= f.submit "Feed me", class:"submit" %></span>
             <% end %>
           <% end %>
         </div><!-- subscribers -->

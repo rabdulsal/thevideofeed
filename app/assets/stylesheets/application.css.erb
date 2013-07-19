@@ -153,6 +153,7 @@ input.entry {
 }
 
 input.submit {
+  cursor:pointer;
   padding:3px 0px 4px 0px;
   margin: 5px 0px 0px 105px;
   width:70px;
@@ -202,7 +203,6 @@ div#people_list p a {
 	display:inline-block;
 }
 
-
 .video_row {
   display:inline-block;
   text-align:center;
@@ -222,84 +222,62 @@ div#people_list p a {
   color: #fff;
 }
 
-.video img {
-  max-height: 320px;
-  max-width: 320px;
-  display:block;
-}
-
-.video .overlay {
-  background-color:rgba(190, 36, 30, .0);
-  bottom: 0px;
-  display: block;
-  left: 6px;
-  position: absolute;
-  right: 0;
-  top: 6px;
-  z-index: 1;
+.thumb-frame {
   height:180px;
   width:320px;
-  -moz-transition-property: background-color;
-  -moz-transition-duration: .5s;
-  -webkit-transition-property: background-color;
-  -webkit-transition-duration: .5s;
-  transition-property: background-color;
-  transition-duration: .5s;
+  margin:0px auto;
+  overflow:hidden;
+  vertical-align:top;
 }
 
-.video .overlay:hover {
-  background-color:rgba(190, 36, 30, .7);
+.thumb-frame img {
+    width:320px;
+  }
+
+.overlay {
+  position: absolute;
+  left:8px;
+  top: 6px;
+  background-color:rgba(190, 36, 30, .8);
+  height:180px;
+  width:320px;
+  z-index: 1;
+  opacity:0;
+  transition: opacity ease-in-out .5s;
+  color:rgba(200, 140, 140, .9);
+  letter-spacing:2px;
+  text-align:center;
+}
+
+.overlay:hover {
+  opacity:1;
 }
 
 .overlay_copy {
-  width:100%;
-  height:120px;
-  padding:50px 0px 0px 0px;
-  opacity:0;
-  -moz-transition-property: opacity;
-  -moz-transition-duration: .5s;
-  -webkit-transition-property: opacity;
-  -webkit-transition-duration: .5s;
-  transition-property: opacity;
-  transition-duration: .5s;
-}
-
-.overlay_copy p {
-  padding:0px 0px 2px 0px;
-	letter-spacing: 1px;
-}
-
-.overlay_copy:hover {
-  opacity:1.0;
+  padding:40px 0px 0px 0px;
+  letter-spacing: 1px; 
 }
 
 .overlay_user {
   font-size:40px;
-  text-align:center;
-  width:100%;
-  height:100%;
-  color:rgba(255, 255, 255, .8);
-  letter-spacing:2px;
+  margin-bottom:5px;
+  color:rgba(255, 255, 255, .9);
+}
+
+.views {
+  font-size:16px;
+  margin-top:5px;
+  color:rgba(255, 255, 255, .9);
 }
 
 .video_title {
-	margin:12px 0px 0px 2px;
+	margin:10px 0px 0px 5px;
 	text-align:left;
-  min-height: 20px;
-	line-height:1.1em;
 	width:318px;
 	overflow:hidden;
 	white-space:nowrap;
-  font-size:15px;
-  color:rgba(150, 36, 50, 1.0);
-}
-
-.video_title p{
-  color:rgba(150, 36, 50, 1.0);
-}
-
-
-.specific_user{
+  font-size:13px;
+  color:rgb(150, 36, 50);
 }
 
 .flash{

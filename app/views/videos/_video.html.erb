@@ -1,19 +1,22 @@
 <div class='video'>
   <%= link_to video_embed(video), class: 'fancybox iframe' do %>
+  <div class='thumb-frame'>  
     <%= image_tag video.thumbnail_url %>
-
     <div class="overlay">
       <div class="overlay_copy">
-        <p>first fed from</p>
-        <p class= "overlay_user">
-          <%= video.first_person.name %>
-          <%= "<br> at #{number_with_delimiter(video.views)} views".html_safe if video.views %>
-        <p>
-      </div><!-- overlay_copy -->
+        <span>fed by</span>
+        <div class= "overlay_user">
+        <%= video.first_person.name %>
+        </div>
+        <span>at</span>
+        <div class='views'>
+          <%= " #{number_with_delimiter(video.views)} views".html_safe if video.views %>
+        </div>   
+      </div>
     </div><!-- overlay -->
-
+  </div>
     <div class="video_title">
-      <p><%= video.title %><p>
+      <%= video.title %>
     </div><!-- video_title -->
   <% end %>
 </div><!-- video -->
