@@ -30,10 +30,10 @@
           <% if flash[:notice] %>
             <p class="flash"><%= flash[:notice] %></p>
           <% else %>
-            <p3>GET THE DAILY DIGEST</p3>
+            <p3>GET THE FEED DIGEST</p3>
             <%= form_for(Subscriber.new) do |f| %>
               <p><%= f.email_field :email, placeholder: 'you@example.com', class:"entry" %></p>
-              <span><%= f.submit "Feed me", class:"submit" %></span>
+              <span><%= f.submit "FEED ME", class:"submit" %></span>
             <% end %>
           <% end %>
         </div><!-- subscribers -->
@@ -42,7 +42,7 @@
     </header>
 
       <div id="people_list">
-        <p2>THE FAVORITES OF:</p2>
+        <p2>FED FROM:</p2>
         <div class="all_people">
           <p><%= people_list %></p>
         </div><!-- all_people -->
