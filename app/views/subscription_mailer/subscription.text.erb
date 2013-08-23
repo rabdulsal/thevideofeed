@@ -1,4 +1,4 @@
-Today's <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
+<%- if @subscriber.daily? %>Today's<% else %>This week's<% end %> <%= @videos.count %> <%= @videos.many? ? 'videos' : 'video' %>:
 
 <% @videos.each do |video| %>
 <%== video.title %> [<%== video.first_person.name %>]
